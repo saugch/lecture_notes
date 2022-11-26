@@ -1,0 +1,1185 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>2.1. The 3 body problem - Lecture notes - MAMME</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#the-restricted-three-body-problem-rtbp">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Lecture notes - MAMME" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lecture notes - MAMME
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2.1. The 3 body problem
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="bluegrey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lecture notes - MAMME" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Lecture notes - MAMME
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Lecture Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Mathematical models in biology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mathematical models in biology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Mathematical models in biology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/">
+        Mathematicals Models in Biology - An introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Evolutionary%20models%20lessons/">
+        Evolutionary models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Genomics/">
+        Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Introduction%20class%20%20to%20MMiB/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Outline%20-%20Mathematical%20models%20in%20Biology/">
+        Mathematical models in Biology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetic%20reconstruction%20lesson/">
+        Phylogenetic reconstruction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetics%20and%20Genomics%20-%20Outline/">
+        Phylogenetics and Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Population%20dynamics%20lecture/">
+        Population dynamics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Evolutionary%20models/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Phylogenetic%20Reconstruction/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Population%20Dynamics/">
+        Projects
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Numerical Methods for Dynamical Systems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Numerical Methods for Dynamical Systems" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Numerical Methods for Dynamical Systems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00.%20Introduction%20to%20the%20class%20to%20NMDS/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.1.%20Preliminaries%20-%20Continuous%20dynamical%20systems/">
+        Preliminaries: Continuous dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.2.%20Preliminaries%20-%20Discrete%20dynamical%20systems/">
+        Discrete dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.3.%20Variational%20equations/">
+        Variational equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.4.%20Poincar%C3%A9%20map/">
+        Poincaré map
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.%20Equilibrium%20points%20and%20stability/">
+        Chapter 2: Equilibrium points and stability
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          2.1. The 3 body problem
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        2.1. The 3 body problem
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-restricted-three-body-problem-rtbp">
+    The restricted three-body problem (RTBP)
+  </a>
+<nav aria-label="The restricted three-body problem (RTBP)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exercise-1">
+    Exercise 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exercise-2">
+    Exercise 2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#existence-of-equilibrium-points-for-the-rtbp">
+    Existence of equilibrium points for the RTBP
+  </a>
+<nav aria-label="Existence of equilibrium points for the RTBP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-ode-reformulation">
+    Def | ODE reformulation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-a-yneq-0">
+    Case a: \(y\neq 0\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b-y-0">
+    Case b: \(y = 0\)
+  </a>
+<nav aria-label="Case b: \(y = 0\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b1-l_2">
+    Case b.1: \(L_{2}\)
+  </a>
+<nav aria-label="Case b.1: \(L_{2}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b2-l_1">
+    Case b.2: \(L_{1}\)
+  </a>
+<nav aria-label="Case b.2: \(L_{1}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation_1">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi_1">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b3-l_3">
+    Case b.3: \(L_{3}\)
+  </a>
+<nav aria-label="Case b.3: \(L_{3}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation_2">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi_2">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+    Summary
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-of-equilibrium-points-l_i-quad-i1dots-5">
+    Stability of equilibrium points (\(L_{i}, \quad i=1,\dots, 5\))
+  </a>
+<nav aria-label="Stability of equilibrium points (\(L_{i}, \quad i=1,\dots, 5\))" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_1-l_2-l_3">
+    For \(L_{1}, L_{2}, L_{3}\)
+  </a>
+<nav aria-label="For \(L_{1}, L_{2}, L_{3}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lemma">
+    Lemma
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_4-l_5">
+    For \(L_{4}, L_{5}\)
+  </a>
+<nav aria-label="For \(L_{4}, L_{5}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-1-0mumu_r">
+    Case 1: \(0&lt;\mu&lt;\mu_{R}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-2-mumu_r">
+    Case 2: \(\mu=\mu_{R}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-3-mu_rmu12">
+    Case 3: \(\mu_{R}&lt;\mu&lt;1/2\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-compute-it-numerically">
+    How to compute it numerically?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark">
+    Remark
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lyapunov-theorem">
+    Lyapunov Theorem
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-to-the-rtbp">
+    Application to the RTBP
+  </a>
+<nav aria-label="Application to the RTBP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_1-l_2-l_4">
+    For \(L_{1}, L_{2}, L_{3}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_4-l_6">
+    For \(L_{4}, L_{5}\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap-computation-of-unstable-manifolds-taking-the-linear-approximation">
+    Recap: Computation of unstable manifolds taking the linear approximation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.2%20Expansion%20of%20parametrizations%20of%20invariant%20manifolds%20%28for%20flows%29/">
+        2.2 Expansion of parametrizations of invariant manifolds (for flows)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20220928%20NMDS%20Assignment%201/">
+        Assignment 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221005%20NMDS%20Assignment%202/">
+        Assignment 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221011%20NMDS%20Assignment%203/">
+        Assignment 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Algebraic%20group/">
+        Algebraic group
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Assignment%204/">
+        Assignment 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../First%20integral/">
+        First integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Jordan%20matrix/">
+        Jordan matrix
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Outline%20-%20Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Outline   Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Separatrix/">
+        Separatrix
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-restricted-three-body-problem-rtbp">
+    The restricted three-body problem (RTBP)
+  </a>
+<nav aria-label="The restricted three-body problem (RTBP)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exercise-1">
+    Exercise 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exercise-2">
+    Exercise 2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#existence-of-equilibrium-points-for-the-rtbp">
+    Existence of equilibrium points for the RTBP
+  </a>
+<nav aria-label="Existence of equilibrium points for the RTBP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-ode-reformulation">
+    Def | ODE reformulation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-a-yneq-0">
+    Case a: \(y\neq 0\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b-y-0">
+    Case b: \(y = 0\)
+  </a>
+<nav aria-label="Case b: \(y = 0\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b1-l_2">
+    Case b.1: \(L_{2}\)
+  </a>
+<nav aria-label="Case b.1: \(L_{2}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b2-l_1">
+    Case b.2: \(L_{1}\)
+  </a>
+<nav aria-label="Case b.2: \(L_{1}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation_1">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi_1">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-b3-l_3">
+    Case b.3: \(L_{3}\)
+  </a>
+<nav aria-label="Case b.3: \(L_{3}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#euler-quintic-polynomial-equation_2">
+    Euler quintic polynomial equation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation-of-xi_2">
+    Numerical computation of \(\xi\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+    Summary
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-of-equilibrium-points-l_i-quad-i1dots-5">
+    Stability of equilibrium points (\(L_{i}, \quad i=1,\dots, 5\))
+  </a>
+<nav aria-label="Stability of equilibrium points (\(L_{i}, \quad i=1,\dots, 5\))" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_1-l_2-l_3">
+    For \(L_{1}, L_{2}, L_{3}\)
+  </a>
+<nav aria-label="For \(L_{1}, L_{2}, L_{3}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lemma">
+    Lemma
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_4-l_5">
+    For \(L_{4}, L_{5}\)
+  </a>
+<nav aria-label="For \(L_{4}, L_{5}\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-1-0mumu_r">
+    Case 1: \(0&lt;\mu&lt;\mu_{R}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-2-mumu_r">
+    Case 2: \(\mu=\mu_{R}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#case-3-mu_rmu12">
+    Case 3: \(\mu_{R}&lt;\mu&lt;1/2\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-compute-it-numerically">
+    How to compute it numerically?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark">
+    Remark
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lyapunov-theorem">
+    Lyapunov Theorem
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#application-to-the-rtbp">
+    Application to the RTBP
+  </a>
+<nav aria-label="Application to the RTBP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_1-l_2-l_4">
+    For \(L_{1}, L_{2}, L_{3}\)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#for-l_4-l_6">
+    For \(L_{4}, L_{5}\)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap-computation-of-unstable-manifolds-taking-the-linear-approximation">
+    Recap: Computation of unstable manifolds taking the linear approximation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>2.1. The 3 body problem</h1>
+<h2 id="the-restricted-three-body-problem-rtbp">The restricted three-body problem (RTBP)<a class="headerlink" href="#the-restricted-three-body-problem-rtbp" title="Permanent link">¶</a></h2>
+<p><em>Ref</em>: V. Szebehely, "Theory of orbits"</p>
+<p>Assume 2 points bodies, called primaries, <span class="arithmatex">\(P_1\)</span>, <span class="arithmatex">\(P_2\)</span>, with masses <span class="arithmatex">\(m_{1}\leq m_{2}\)</span>, that describe circular orbits arround their common center of mass located at the origin on the plan (<span class="arithmatex">\(X, Y\)</span>) -- <a href="https://en.wikipedia.org/wiki/Sidereal_time">sidereal</a> or nonrotating coordinates.</p>
+<p>Assume a third body <span class="arithmatex">\(P_3\)</span>, with infinitessimal mass, <span class="arithmatex">\(m_{3}\approx 0\)</span> such that <span class="arithmatex">\(m_{1}\)</span> and <span class="arithmatex">\(m_2\)</span> have influence (gravitational force) on <span class="arithmatex">\(P_3\)</span>, but <span class="arithmatex">\(P_3\)</span> does not influence the motion of <span class="arithmatex">\(P_{1}\)</span> and <span class="arithmatex">\(P_{2}\)</span>. </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\vec{R}_{1}(t^{*}) &amp;= (X_{1}(t^{*}), Y_{1}(t^{*})) = (b\cos{(nt^{*})}, b\sin{(nt^{*})})  \\
+\vec{R}_{2}(t^{*}) &amp;= (X_{2}(t^{*}), Y_{2}(t^{*})) = (-a\cos{(nt^{*})}, -a\sin{(nt^{*})}) 
+\end{cases}\)</span>\)</span>
+Now, I'd like to know the motion of <span class="arithmatex">\(P_{3}\)</span>.
+![[3-body_problem_ini_diagram]]</p>
+<p>By the Newton's law:</p>
+<p>$$m_{3}\ddot{\vec{R}} = - G \frac{m_{3}m_{1}(\vec{R}-\vec{R}<em>1)}{||\vec{R} - \vec{R}</em>{1}||^{3}} - G\frac{m_{3}m_{2}(\vec{R}-\vec{R}<em>2)}{||\vec{R} - \vec{R}</em>{2}||^{3}}  = $$
+where the dot notation is the derivative with respect to time (<span class="arithmatex">\(t^*\)</span>).</p>
+<p>This is a system of 2 ODE of 2nd order or ,equivalently, a system of 4 ODE of 1st order, non-autonomous (it depends on <span class="arithmatex">\(t^{*}\)</span>).</p>
+<p>Now let us consider a new system of coordinates <span class="arithmatex">\((x, y)\)</span> -- synodical or rotating -- such that the primaries remain fixed on the x axis.</p>
+<div class="arithmatex">\[\begin{pmatrix}X \\ Y\end{pmatrix} = \begin{pmatrix}\cos{nt^{*}}  &amp; -\sin{nt^{*}}  \\ \sin{nt^{*}}  &amp; \cos{nt^{*}}\end{pmatrix}\]</div>
+<p>or <span class="arithmatex">\(<span class="arithmatex">\(\begin{pmatrix}x \\ y \end{pmatrix} = \begin{pmatrix}\cos{nt^{*}}  &amp; \sin{nt^{*}}  \\ - \sin{nt^{*}}  &amp; \cos{nt^{*}}\end{pmatrix}\begin{pmatrix}X \\ Y\end{pmatrix}\)</span>\)</span>
+Now we choose suitable units of mass, length and time such that <span class="arithmatex">\(n=1\)</span>, <span class="arithmatex">\(a+b=1\)</span>, <span class="arithmatex">\(G=1\)</span>, <span class="arithmatex">\(m_{1}+ m_{2}= 1\)</span> (see <em>V.S</em>). Denote <span class="arithmatex">\(t\)</span> this new time.</p>
+<div class="arithmatex">\[\begin{cases}
+x'' - 2y' &amp;= \frac{\partial\Omega}{\partial x} \\
+y'' + 2x' &amp;= \frac{\partial\Omega}{\partial y}
+\end{cases}$$
+where $^{'} = \frac{d}{dt}$, $\Omega(x,y) = \frac{1}{2}(x^{2}+y^{2}) + \frac{1-\mu}{r_{1}} + \frac{\mu}{r_{2}} + \frac{1}{2}\mu(1-\mu)$
+where $\mu = \frac{m_{2}}{m_{1}+m_{2}} \in (0, 0.5]$ , $r_{1}=dist(P_{1}, P_{3})$, $r_{2}=dist(P_{2}, P_{3}))$.
+![[3_body_problem_rotating_frame]]
+Then,
+###### Def | Position vectors
+$$\begin{cases}
+r_{1} &amp;= \sqrt{(x-\mu)^{2} + y^{2}} \\
+r_{2} &amp;= \sqrt{(x-\mu + 1)^{2} + y^{2}}
+\end{cases}\]</div>
+<p>This system is now autonomous. </p>
+<h5 id="exercise-1">Exercise 1<a class="headerlink" href="#exercise-1" title="Permanent link">¶</a></h5>
+<p>Check that this expression
+$$ 2 \Omega(x, y) - (x'^{2} + y'^{2}) = C$$
+is a first integral called <strong>[[Jacobi first integral]]</strong></p>
+<h5 id="exercise-2">Exercise 2<a class="headerlink" href="#exercise-2" title="Permanent link">¶</a></h5>
+<p><strong>2.1.</strong> The system of ODE can be written as a Hamiltonian System with 2 degrees of freedom. taking
+<span class="arithmatex">\(x_{1}=x\)</span>, <span class="arithmatex">\(x_{2}=y\)</span>, <span class="arithmatex">\(y_{1}=x'-y\)</span>, <span class="arithmatex">\(y_{2}= y' + x\)</span>
+and Hamiltonian function
+<span class="arithmatex">\(<span class="arithmatex">\(H(x_{1}, x_{2}, y_{1}, y_{2}) = \frac{1}{2}(y_{1}^{2}+y_{2}^{2}) +x_{2}y_{1}-x_{1}y_{2} - \left(\frac{1-\mu}{r_{1}} + \frac{\mu}{r_{2}}\right)\)</span>\)</span>
+![[2.1. The 3 body problem 2022-11-14 18.14.30.excalidraw]]
+The Hamiltonian system of ODE is
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x_{i}' &amp;= \frac{dx_{i}}{dt}=\frac{\partial H}{\partial y_i} \\
+y_{i}' &amp;= \frac{dy_{i}}{dt}=-\frac{\partial H}{\partial x_i}
+\end{cases}\)</span>\)</span></p>
+<p>Recall that, in general, given a Hamiltonian function with <span class="arithmatex">\(n\)</span> degrees of freedom, <span class="arithmatex">\(H(x_{1}, \dots, x_{n}, y_{1}, \dots, y_{n})\)</span>, the associated Hamiltonian system of ODE is
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x_{i}' &amp;= \frac{dx_{i}}{dt}=\frac{\partial H}{\partial y_i} \\
+y_{i}' &amp;= \frac{dy_{i}}{dt}=-\frac{\partial H}{\partial x_i}
+\end{cases} \qquad i = 1,\dots, n\)</span>\)</span>
+<strong>2.2</strong> Prove that <span class="arithmatex">\(H(x,y) =H(x_{1}, \dots, x_{n}, y_{1}, \dots, y_{n})\)</span> is a first integral for the Hamiltonian System. </p>
+<blockquote>
+<p>This is just one line. dH/dt?</p>
+</blockquote>
+<p><strong>2.3</strong> Write the relation between <span class="arithmatex">\(H = h\)</span> and <span class="arithmatex">\(C\)</span> (the relation can only contain <span class="arithmatex">\(h\)</span>, <span class="arithmatex">\(C\)</span>, <span class="arithmatex">\(\mu\)</span>).</p>
+<p>For short, we can also write it like
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x'' - 2y' &amp;= \Omega_x \\
+y'' + 2x' &amp;= \Omega_y
+\end{cases}\)</span>\)</span>
+<strong>Comments</strong>: </p>
+<blockquote>
+<p>Why do we add the term  <span class="arithmatex">\(\frac{1}{2}\mu(1-\mu)\)</span> for <span class="arithmatex">\(\Omega\)</span> if it doesn't play a role in the ODE? Just because you want <span class="arithmatex">\(\Omega\)</span> to take easy numbers for specific values of x, y</p>
+</blockquote>
+<ol>
+<li>A first generalization of the RTBP is to consider the spatial RTBP, that is, <span class="arithmatex">\(P_1\)</span> and <span class="arithmatex">\(P_2\)</span> are fixed on the <span class="arithmatex">\(x\)</span> axis (they move on the (<span class="arithmatex">\(X, Y\)</span>) system), but <span class="arithmatex">\(P_3\)</span> moves  in <span class="arithmatex">\((x, y, z)\)</span> (or <span class="arithmatex">\((X, Y, Z)\)</span>). We obtain a system of 6 ODE of first order. </li>
+<li>A second generalization has to do with the 2-body motion of the primaries <span class="arithmatex">\(P_{1}, P_{2}\)</span>:<ul>
+<li>Circular orbits -&gt; <em>Circular RTBP</em></li>
+<li>Elliptic orbits -&gt; <em>Elliptic RTBP</em></li>
+<li>Parabolic orbits -&gt; <em>Parabolic RTBP</em></li>
+<li>Hyperbolic orbits -&gt; <em>Hyperbolic RTBP</em></li>
+</ul>
+</li>
+<li>The RTBP can be (has been) used as a preliminary model to explain:<ul>
+<li>Several real missions: Genesis, Artemis, etc.</li>
+<li>Trojan asteroids</li>
+<li>Coorbital motion of Janus and Epimetheus (atellites of Saturn)</li>
+<li>Etc.</li>
+</ul>
+</li>
+</ol>
+<h3 id="existence-of-equilibrium-points-for-the-rtbp">Existence of equilibrium points for the RTBP<a class="headerlink" href="#existence-of-equilibrium-points-for-the-rtbp" title="Permanent link">¶</a></h3>
+<p>Take <span class="arithmatex">\(x_{1}= x\)</span>, <span class="arithmatex">\(x_{2}=y\)</span>, <span class="arithmatex">\(x_{3}= x'\)</span>, <span class="arithmatex">\(x_{4}= y'\)</span>, the system (S) becomes
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\frac{dx_{1}}{dt}= x_{1}' = x_{3} \\
+\frac{dx_{2}}{dt}= x_{2}' = x_{4} \\
+\frac{dx_{3}}{dt}= x_{3}' = 2x_{4} + \Omega_{x_{1}} \\
+\frac{dx_{4}}{dt}= x_{4}' = -2x_{3} + \Omega_{x_{2}} \\
+\end{cases}\)</span>\)</span>
+This is the system of ODE's of first order we are going to implement. </p>
+<h6 id="def-ode-reformulation">Def | ODE reformulation<a class="headerlink" href="#def-ode-reformulation" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x_{1}' = x_{3} \\
+x_{2}' = x_{4} \\
+x_{3}' = 2x_{4} + \Omega_{x_{1}} \\
+x_{4}' = -2x_{3} + \Omega_{x_{2}} \\
+\end{cases} \qquad \Leftrightarrow \qquad X' = F(X)\)</span>\)</span>
+<strong>Equilibrium points</strong>: <span class="arithmatex">\(F(X) = 0\)</span>, <span class="arithmatex">\(x_{3}=x_{4}=0\)</span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\Omega_{x_{1}} = 0  \\
+\Omega_{x_{2}} = 0
+\end{cases} \qquad \Leftrightarrow \begin{cases}
+\Omega_x = 0  \\
+\Omega_y = 0
+\end{cases}\)</span>\)</span>
+So,
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\Omega_x = 0  \Leftrightarrow x - \frac{(1-\mu)(x-\mu)}{r_{1}^{3}} - \frac{\mu(x-\mu + 1)}{r_{2}^{3}} = 0\\
+\Omega_{y} = 0 \Leftrightarrow y\left[ 1- \frac{(1-\mu)}{r_{1}^{3}} - \frac{\mu}{r_{2}^{3}}\right] = 0
+\end{cases}\)</span>\)</span>
+We distinguish two cases:</p>
+<h4 id="case-a-yneq-0">Case a: <span class="arithmatex">\(y\neq 0\)</span><a class="headerlink" href="#case-a-yneq-0" title="Permanent link">¶</a></h4>
+<p>![[RTBP_L4|300]]</p>
+<p>From the 2nd eq, necessarily we have <span class="arithmatex">\(<span class="arithmatex">\(1- \frac{(1-\mu)}{r_{1}^{3}} - \frac{\mu}{r_{2}^{3}} = 0\)</span>\)</span>
+From the 1st eq: <span class="arithmatex">\(<span class="arithmatex">\(x\left( 1- \frac{(1-\mu)}{r_{1}^{3}} - \frac{\mu}{r_{2}^{3}}\right) + \frac{\mu(1-\mu)}{r_{1}^{3}} - \frac{\mu(1-\mu)}{r_{2}^{3}} = 0\)</span>\)</span>
+The first term is 0 (from the eq above), so we have that if <span class="arithmatex">\(\mu(1-\mu) \neq 0\)</span>:
+$$ \frac{1}{r_{1}^{3}}- \frac{1}{r_{2}^{3}} = 0 \Leftrightarrow r_{1}^{3} = r_{2}^{3} \Leftrightarrow r_{1} = r_{2}$$
+Then from the first condition we get:
+<span class="arithmatex">\(<span class="arithmatex">\(1-\frac{1-\mu}{r^{3}} - \frac{\mu}{r^{3}} = 1 - \frac{1}{r^{3}} = 0 \Leftrightarrow r^{3}=1\)</span>\)</span>
+So we have, <span class="arithmatex">\(r=1\)</span> as equilibrim point.</p>
+<p>This means we have an equilateral triangle. Upwards (L4) and downwards (L5).</p>
+<p><span class="arithmatex">\(L_{4}, L_{5}\)</span> are called the triangular (or equilateral) equilibrium points: <span class="arithmatex">\(L_{4,5} = (x_{1},x_{2},x_{3},x_{4}) = (\mu-\frac{1}{2}, \frac{\pm\sqrt{3}}{2}, 0, 0)\)</span></p>
+<h4 id="case-b-y-0">Case b: <span class="arithmatex">\(y = 0\)</span><a class="headerlink" href="#case-b-y-0" title="Permanent link">¶</a></h4>
+<p>Remember,
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\Omega_x = 0  \Leftrightarrow x - \frac{(1-\mu)(x-\mu)}{r_{1}^{3}} - \frac{\mu(x-\mu + 1)}{r_{2}^{3}} = 0\\
+\Omega_{y} = 0 \Leftrightarrow y\left[ 1- \frac{(1-\mu)}{r_{1}^{3}} - \frac{\mu}{r_{2}^{3}}\right] = 0
+\end{cases}\)</span>\)</span>
+So, the 2nd equation is satified automatically. We need to solve only the first one.</p>
+<p>Also, the position vectors are now</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+r_{1} &amp;= \sqrt{(x-\mu)^{2}} \\
+r_{2} &amp;= \sqrt{(x-\mu + 1)^{2}}
+\end{cases}\)</span>\)</span>
+We will distinguish 3 different cases:</p>
+<h5 id="case-b1-l_2">Case b.1: <span class="arithmatex">\(L_{2}\)</span><a class="headerlink" href="#case-b1-l_2" title="Permanent link">¶</a></h5>
+<p>![[RTBP_L2]]</p>
+<p>Those equilibrium points on the <span class="arithmatex">\(x\)</span>-axis located on the left handside of <span class="arithmatex">\(P_2\)</span>, at <span class="arithmatex">\(\xi\)</span> distance from <span class="arithmatex">\(P_2\)</span>:</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x &amp;= \mu - 1-\xi \\
+r_{1} &amp;= 1 + \xi \\
+r_{2} &amp;= \xi
+\end{cases}\)</span>\)</span>
+We plug this into the previous expressions:</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{aligned}
+0 =&amp; x - \frac{(1-\mu)(x-\mu)}{r_{1}^{3}} - \frac{\mu(x-\mu + 1)}{r_{2}^{3}} \\
+0 =&amp; \mu-1 - \xi + \frac{(1-\mu)(1+\xi)}{(1+\xi)^{3}} - \frac{\mu\xi}{\xi^{3}}
+\end{aligned}\)</span>\)</span>
+Multiplying by <span class="arithmatex">\((1+\xi)^{2}\xi^{2}\)</span>, we obtain</p>
+<h6 id="euler-quintic-polynomial-equation">Euler quintic polynomial equation<a class="headerlink" href="#euler-quintic-polynomial-equation" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\xi^{5}+ (3-\mu)\xi^{4} + (3-2\mu)\xi^{3} - \mu\xi^{2} - 2\mu\xi - \mu = 0\)</span>\)</span>
+<em>Eq(EL2)</em></p>
+<p>We want all the possible roots with <span class="arithmatex">\(\xi&gt; 0\)</span>.</p>
+<p>In order to prove that there exists a unique  <span class="arithmatex">\(\xi &gt; 0\)</span>:
+1. First, we use [[Descartes' rule]]: The number of <strong>positive roots</strong> of a polynomial is less or equal than the number of sign changes in the sequence given by the coefficients of the polynomial.
+    <em>Coefficients:</em> <span class="arithmatex">\(1, \; 3-\mu, \; 3-2\mu, \; -\mu, \; -2\mu, -1\)</span>
+    1 single change of sign from <span class="arithmatex">\(3-2\mu\)</span> to <span class="arithmatex">\(-\mu\)</span>  (remember <span class="arithmatex">\(\mu \in (0, \frac{1}{2})\)</span>), which means the number of positive roots is <span class="arithmatex">\(\leq 1\)</span>.
+2. Second, we apply [[Bolzano's theorem]]:
+    <span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+ P(0) = -\mu &lt; 0  \\
+P(1) = 7-7\mu=7(1-\mu) &gt; 0
+\end{cases}\)</span>\)</span>
+    To find that there's at least one root between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(1\)</span>.</p>
+<p>So, we will have <span class="arithmatex">\(L_{2}=(\mu-1-\xi, 0, 0, 0)\)</span>.</p>
+<h6 id="numerical-computation-of-xi">Numerical computation of <span class="arithmatex">\(\xi\)</span><a class="headerlink" href="#numerical-computation-of-xi" title="Permanent link">¶</a></h6>
+<blockquote>
+<p>V. Szebehly's book</p>
+</blockquote>
+<p>One way is to rewrite <a href="#euler-quintic-polynomial-equation">#Euler quintic polynomial equation</a> as
+<span class="arithmatex">\(<span class="arithmatex">\(\xi^{3}= \frac{\mu(1+\xi)^{2}}{3-2\mu + \xi(3-\mu + \xi)} \quad \Leftrightarrow \quad \xi= \left[\frac{\mu(1+\xi)^{2}}{3-2\mu + \xi(3-\mu + \xi)}\right]^{\frac{1}{3}} = f_{2}(\xi)\)</span>\)</span>
+We take an initial <span class="arithmatex">\(\xi_{0}\)</span> and we compute the sequence:
+<span class="arithmatex">\(<span class="arithmatex">\(\xi_{0}, \; \xi_{1}=f_{2}(x_{0}), \; \xi_{2}=f_{2}(x_{1}), \; \dots \; \xi_{n+1}=f_{2}(x_{n}), \; \dots\)</span>\)</span>
+We stop the procedure when <span class="arithmatex">\(|f(\xi) - \xi| &lt; tol\)</span>.</p>
+<p><em>What value of <span class="arithmatex">\(\xi_{0}\)</span> do we take?</em></p>
+<p>We write <em>(EL2)</em> as</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\left(\frac{\mu}{3(1-\mu)}\right)^\frac{1}{3}= \left(\frac{\xi^{3}(1+\xi+\xi^{2}/3)}{(1+\xi)^{2}(1-\xi)^{3}}\right)^\frac{1}{3}\)</span>\)</span>
+which is equivalent to saying
+<span class="arithmatex">\(<span class="arithmatex">\(\nu = F(\xi) \Leftrightarrow \xi = F^{-1}(\nu) = g(\nu) = g'(0)\nu + \dots = \nu + \dots\)</span>\)</span>
+We, thus, take as <span class="arithmatex">\(\xi_{0}=\nu = \left(\frac{\mu}{3(1-\mu)}\right)^{\frac{1}{3}}\)</span>.</p>
+<h5 id="case-b2-l_1">Case b.2: <span class="arithmatex">\(L_{1}\)</span><a class="headerlink" href="#case-b2-l_1" title="Permanent link">¶</a></h5>
+<p>![[RTBP_L1|300]]
+We look for those equilibrium points that are between <span class="arithmatex">\(P_{1}\)</span> and <span class="arithmatex">\(P_{2}\)</span>. It's at <span class="arithmatex">\(\xi\)</span> distance from <span class="arithmatex">\(P_{2}\)</span></p>
+<div class="arithmatex">\[\begin{cases}
+x &amp;= \mu - 1 + \xi \\
+r_{1} &amp;= 1 - \xi \\
+r_{2} &amp;= \xi
+\end{cases}$$
+We plug this into the previous expressions:
+$$\begin{aligned}
+0 =&amp; x - \frac{(1-\mu)(x-\mu)}{r_{1}^{3}} - \frac{\mu(x-\mu + 1)}{r_{2}^{3}} \\
+0=&amp; \mu-1 + \xi + \frac{(1-\mu)(1-\xi)}{(1-\xi)^{3}} - \frac{\mu\xi}{\xi^{3}}
+\end{aligned}\]</div>
+<h6 id="euler-quintic-polynomial-equation_1">Euler quintic polynomial equation<a class="headerlink" href="#euler-quintic-polynomial-equation_1" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(Q(\xi) = \xi^{5} - (3-\mu)\xi^{4} + (3-2\mu)\xi^{3} - \mu\xi^{2} + 2\mu\xi - \mu = 0\)</span>\)</span>
+<em>Eq(EL1)</em></p>
+<p>We look for roots <span class="arithmatex">\(\xi \in (0, 1)\)</span>.</p>
+<p>We do
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+Q(0) &amp;= -\mu &lt; 0 \\
+Q(1) &amp;= 1 - \mu &gt; 0
+\end{cases}\)</span>\)</span>
+By [[Bolzano's theorem]], there exists at least one root <span class="arithmatex">\(\xi \in (0, 1)\)</span>. Actually, <span class="arithmatex">\(\exists !\)</span> root (to be checked numerically).</p>
+<p>There exists a unique equilibrium point between <span class="arithmatex">\(P_{1}\)</span> and <span class="arithmatex">\(P_{2}\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(L_{1}=(\mu-1+\xi, 0, 0, 0).\)</span>\)</span></p>
+<h6 id="numerical-computation-of-xi_1">Numerical computation of <span class="arithmatex">\(\xi\)</span><a class="headerlink" href="#numerical-computation-of-xi_1" title="Permanent link">¶</a></h6>
+<p>We move from a polynomial equation to a fix point equation as before
+<span class="arithmatex">\(<span class="arithmatex">\(\xi= \left[\frac{\mu(1-\xi)^{2}}{3-2\mu - \xi(3-\mu - \xi)}\right]^{\frac{1}{3}} = f_{1}(\xi)\)</span>\)</span>
+and we will have <span class="arithmatex">\(\xi = f_{1}(\xi)\)</span></p>
+<p>We do the same procedure as before. For the initial value of  <span class="arithmatex">\(\xi_{0}=\nu = \left(\frac{\mu}{3(1-\mu)}\right)^{\frac{1}{3}}\)</span>.</p>
+<h5 id="case-b3-l_3">Case b.3: <span class="arithmatex">\(L_{3}\)</span><a class="headerlink" href="#case-b3-l_3" title="Permanent link">¶</a></h5>
+<p>![[L3_RTBP]]
+We look for those equilibrium points that on the right hand side of <span class="arithmatex">\(P_{1}\)</span>It's at <span class="arithmatex">\(\xi\)</span> distance from <span class="arithmatex">\(P_{1}\)</span></p>
+<div class="arithmatex">\[\begin{cases}
+x &amp;= \mu + \xi \\
+r_{1} &amp;= \xi \\
+r_{2} &amp;= 1 + \xi
+\end{cases}$$
+We plug this into the previous expressions:
+$$\begin{aligned}
+0 =&amp; x - \frac{(1-\mu)(x-\mu)}{r_{1}^{3}} - \frac{\mu(x-\mu + 1)}{r_{2}^{3}} \\
+0=&amp; \mu + \xi - \frac{(1-\mu)\xi}{\xi^{3}} - \frac{\mu(1+\xi)}{(1+\xi)^{3}}
+\end{aligned}\]</div>
+<h6 id="euler-quintic-polynomial-equation_2">Euler quintic polynomial equation<a class="headerlink" href="#euler-quintic-polynomial-equation_2" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(R(\xi) = \xi^{5} + (2+\mu)\xi^{4} + (1+2\mu)\xi^{3} - (1-\mu)\xi^{2} + 2(1-\mu)\xi - (1-\mu) = 0\)</span>\)</span>
+<em>Eq(EL3)</em></p>
+<p>We look for roots <span class="arithmatex">\(\xi \in (0, 1)\)</span>.</p>
+<p>By Descartes rule, theres only one change of sign, so the number of positive roots is <span class="arithmatex">\(\leq 1\)</span>. By Bolzano's rule,
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+R(0) &amp;= -(1 - \mu) &lt; 0 \\
+Q(1) &amp;= 7\mu &gt; 0
+\end{cases}\)</span>\)</span>
+so at least <span class="arithmatex">\(\exists\)</span> one root.</p>
+<p>There exists a unique equilibrium at the right hand side of <span class="arithmatex">\(P_{1}\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(L_{3}=(\mu+\xi, 0, 0, 0).\)</span>\)</span>
+with <span class="arithmatex">\(\xi \in (0, 1)\)</span></p>
+<h6 id="numerical-computation-of-xi_2">Numerical computation of <span class="arithmatex">\(\xi\)</span><a class="headerlink" href="#numerical-computation-of-xi_2" title="Permanent link">¶</a></h6>
+<p>As before
+<span class="arithmatex">\(<span class="arithmatex">\(\xi= \left[\frac{(1-\mu)(1+\xi)^{2}}{1+2\mu + \xi(2+\mu + \xi)}\right]^{\frac{1}{3}} = f_{3}(\xi)\)</span>\)</span>
+and we will have <span class="arithmatex">\(\xi = f_{3}(\xi)\)</span></p>
+<p>For the initial value, we proceed as follow:</p>
+<p>Our quintic polynomial equation is <span class="arithmatex">\(R(\xi) = 0\)</span> with <span class="arithmatex">\(\xi \in (0, 1)\)</span>. Numerically, one can check that <span class="arithmatex">\(\xi\)</span> is closed to 1, so we do the change of variables: <span class="arithmatex">\(\eta = \xi - 1\)</span>.  We obtain this new quintic:
+<span class="arithmatex">\(<span class="arithmatex">\(\eta^{5} + (7+\mu)\eta^{4} + (19+6\mu)\eta^{3} + (24+13\mu)\eta^{2} + 2(6+7\mu)\eta + 7\mu = 0\)</span>\)</span>
+or <span class="arithmatex">\(<span class="arithmatex">\(\eta\left[12 + 14\mu + (24+13\mu)\eta + (19+6\mu)\eta^{2}+(7+\mu)\eta^{3} + \eta^{4}  \right]= -7\mu\)</span>\)</span>
+So, <span class="arithmatex">\(<span class="arithmatex">\(\eta = \frac{-7\mu}{12 + 14\mu + O(\eta)} = \frac{-7\mu}{12+14\mu}(1+O(\eta)) = \frac{-7\mu}{12}(1+O(\eta))(1+O(\eta))\)</span>\)</span>and then <span class="arithmatex">\(<span class="arithmatex">\(\xi_{0}= 1 - \frac{7\mu}{12}\)</span>\)</span></p>
+<h4 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h4>
+<p>In summary, the RTBP has 5 equlibium points:
+- <span class="arithmatex">\(L_{1, 2, 3}\)</span> the <strong>collinear</strong> ones
+-  <span class="arithmatex">\(L_{4, 5 }\)</span> the <strong>triangular</strong> ones.</p>
+<h3 id="stability-of-equilibrium-points-l_i-quad-i1dots-5">Stability of equilibrium points (<span class="arithmatex">\(L_{i}, \quad i=1,\dots, 5\)</span>)<a class="headerlink" href="#stability-of-equilibrium-points-l_i-quad-i1dots-5" title="Permanent link">¶</a></h3>
+<p>Let us compute the eigenvalues of <span class="arithmatex">\(DF(L_{i})\)</span></p>
+<div class="arithmatex">\[DF|_{L_{i}} = \begin{pmatrix}0 &amp; 0 &amp; 1 &amp; 0 \\ 
+0 &amp; 0 &amp; 0 &amp; 1 \\ 
+\Omega_{xx} &amp; \Omega_{xy} &amp; 0 &amp; 2 \\ 
+\Omega_{yx} &amp; \Omega_{yy} &amp; -2 &amp; 0
+\end{pmatrix}$$
+The [[characteristic polynomial]] is $\det{(DF(L_{i}) - \lambda \mathbb{I})} = 0$, or equivalently
+$$\lambda^{4} + (4-\Omega_{xx}(L_{i}) - \Omega_{yy}(L_{i}))\lambda^{2} + \Omega_{xx}(L_{i})\Omega_{yy}(L_{i}) - [\Omega_{xy}(L_{i})]^{2} = 0\]</div>
+<h4 id="for-l_1-l_2-l_3">For <span class="arithmatex">\(L_{1}, L_{2}, L_{3}\)</span><a class="headerlink" href="#for-l_1-l_2-l_3" title="Permanent link">¶</a></h4>
+<p>Recall $$\Omega(x, y) = \frac{1}{2}(x^{2}+ y^{2}) + \frac{1-\mu}{r_{1}} + \frac{\mu}{r_{2}}+ \frac{1}{2}\mu(1-\mu) $$ and <span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\Omega_{xx}&amp;=1 - \frac{1-\mu}{r_{1}^{3}} + \frac{3(1-\mu)(x-\mu)^{2}}{r_{1}^{5}} - \frac{\mu}{r_{2}^{3}}+ \frac{3\mu(x-\mu+1)^{2}}{r_{2}^{5}}\\
+\Omega_{xy} &amp;= y\left(\frac{3(1-\mu)(x-\mu)}{r_{1}^{5}} + 3\mu\frac{x-\mu+1}{r_{2}^{5}}\right)\\
+\Omega_{yy} &amp;= 1 - \frac{1-\mu}{r_{1}^{3}} - \frac{\mu}{r_{2}^{3}}+ y^{2}\left(\frac{3(1-\mu)}{r_1^5}+ \frac{3\mu}{r_2^{5}}\right)\end{align*}\)</span>\)</span></p>
+<h6 id="lemma">Lemma<a class="headerlink" href="#lemma" title="Permanent link">¶</a></h6>
+<div class="arithmatex">\[\begin{align*}
+\Omega_{xx}(L_{i}) &amp;=  1 + 2\frac{1-\mu}{|x-\mu|^{3}} + \frac{2\mu}{|x-\mu+1|^{3}}&gt;0 \\
+\Omega_{xy}(L_{i}) &amp;= 0\\
+\Omega_{yy}(L_{i}) &amp;&lt; 0 \qquad \textrm{(To be checked numerically)}
+\end{align*}$$
+So the characteristic equation becomes
+$$\lambda^{4} + (4-\Omega_{xx}(L_{i}) - \Omega_{yy}(L_{i}))\lambda^{2} + \Omega_{xx}(L_{i})\Omega_{yy}(L_{i}) = 0\]</div>
+<p>Now, we define:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\beta_{1} &amp;= 2 - \frac{(\Omega_{xx}+\Omega_{yy})|_{L_{i}}}{2} \quad\longleftarrow 2\beta_{1} = 4-(\Omega_{xx}+\Omega_{yy})|_{L_{i}} \\
+\beta_{2}^{2} &amp;=-(\Omega_{xx}\cdot\Omega_{yy})|_{L_{i}}
+\end{cases}\)</span>\)</span> and we can rewrite the characteristic equation as:
+<span class="arithmatex">\(<span class="arithmatex">\(\lambda^{4} + 2\beta_{1}\lambda^{2}-\beta_{2}^{2}= 0 \Rightarrow \lambda^{2}= -\beta_{1} \pm \sqrt{\beta_{1}^{2}+ \beta_{2}^{2}}\)</span>\)</span>
+Since <span class="arithmatex">\(|\beta_{1}^{2}+ \beta_{2}^{2}| &gt; |\beta_{1}|\)</span>, it means that we will have that the square root is bigger so we have two kind of solutions:
+<span class="arithmatex">\(<span class="arithmatex">\(\lambda^{2}= \begin{cases}
+A &gt; 0 \\
+B &lt; 0
+\end{cases}\)</span>\)</span>
+and thus <span class="arithmatex">\(<span class="arithmatex">\(\Rightarrow \lambda = \begin{cases}
+\quad\sqrt{A} &gt; 0  \\
+- \sqrt{A} &lt; 0  \\
+\quad \sqrt{-B}i \\
+-\sqrt{-B}i
+\end{cases}\)</span>\)</span>
+This is going to be called <strong>center x saddle</strong>, center for the imaginary eigenvalues and and saddle for the real, positive and negative points.  (check picture).</p>
+<p>So <span class="arithmatex">\(\forall u \in (0, \frac{1}{2})\)</span>, <span class="arithmatex">\(L_{1}, L_{2}, L_{3}\)</span> are unstable for the original nonlinear system (the RTBP).</p>
+<blockquote>
+<p>For any <span class="arithmatex">\(\mu \in (0, \frac{1}{2}]\)</span>, there exists:
+- a 1d unstable manifold <span class="arithmatex">\(W^{u}(L_{i})\)</span>
+- a 1d stable manifold <span class="arithmatex">\(W^{s}(L_{i})\)</span></p>
+</blockquote>
+<h4 id="for-l_4-l_5">For <span class="arithmatex">\(L_{4}, L_{5}\)</span><a class="headerlink" href="#for-l_4-l_5" title="Permanent link">¶</a></h4>
+<p>For <span class="arithmatex">\(L_{4, 5} = (\mu-\frac{1}{2}, \pm \frac{\sqrt{3}}{2}, 0, 0)\)</span>, we compute:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\Omega_{xx}(L_{4}) = \Omega_{xx}(L_{5})= \frac{3}{4}\\
+\Omega_{yy}(L_{4}) = \Omega_{yy}(L_{5})= \frac{9}{4}\\
+\Omega_{xy}(L_{4}) = \frac{3\sqrt{3}}{2}\left(\mu - \frac{1}{2}\right)= - \Omega_{xy}(L_{5})
+\end{align*}\)</span>\)</span></p>
+<blockquote>
+<p>checking this is an exercise</p>
+</blockquote>
+<p>We obtain <span class="arithmatex">\(<span class="arithmatex">\(\lambda^{4}+ \lambda^{2}+ \frac{27}{4}\mu (1-\mu) = 0\)</span>\)</span>so that <span class="arithmatex">\(<span class="arithmatex">\(\lambda^{2}= \frac{1}{2}\left(-1 \pm \sqrt{1 - 27\mu(1-\mu)}\right)\)</span>\)</span>Now let's discuss the sign of the inside of the root, which we will define as:
+<span class="arithmatex">\(<span class="arithmatex">\(f(\mu) = 1-27\mu(1- \mu) = 27\mu^{2}-27\mu+1, \quad \mu\in (0, 1/2]\)</span>\)</span>
+<img alt="../../Media/Pasted image 20221102164231.png" src="../../../Media/Pasted image 20221102164231.png"/>
+We are interested in the point where the graph crosses the x-axis: <span class="arithmatex">\(\mu_{R}\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(f(\mu_{R}) = 0 \rightarrow 27\mu^{2} - 27\mu+1 = 0 \Rightarrow \mu_{R}=\frac{1}{2}\left(1\pm\frac{\sqrt{69}}{9}\right)\)</span>\)</span>
+since <span class="arithmatex">\(\mu \in (0, 1/2]\)</span>, then we take the minus part:
+<span class="arithmatex">\(<span class="arithmatex">\(\mu_{R}=\frac{1}{2}\left(1-\frac{\sqrt{69}}{9}\right) = 0.038...\)</span>\)</span>
+We distinguish 3 cases:</p>
+<h6 id="case-1-0mumu_r">Case 1: <span class="arithmatex">\(0&lt;\mu&lt;\mu_{R}\)</span><a class="headerlink" href="#case-1-0mumu_r" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\lambda^{2}= \begin{cases}
+\Lambda_{1} &lt; 0  \\
+\Lambda_{2} &lt; 0
+\end{cases} \Rightarrow \lambda = \begin{cases}
+\pm \sqrt{|\Lambda_{1|}}i = \pm w_{1}i \\
+\pm \sqrt{|\Lambda_{2|}}i = \pm w_{2}i
+\end{cases}\)</span>\)</span>
+with 
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+w_{1}= \left(\frac{1}{2}|-1 - \sqrt{1 - 27\mu(1-\mu)}|\right)^{\frac{1}{2}}= \frac{1}{\sqrt{2}}\sqrt{1 + \sqrt{1 - 27\mu(1-\mu)}}\\
+w_{2}= \left(\frac{1}{2}|-1 + \sqrt{1 - 27\mu(1-\mu)}|\right)^{\frac{1}{2}}= \frac{1}{\sqrt{2}}\sqrt{1 - \sqrt{1 - 27\mu(1-\mu)}}
+\end{align*}\)</span>\)</span>
+so that <span class="arithmatex">\(\omega_{1}^{2}&gt; \frac{1}{2}&gt;\omega_{2}^{2}\)</span></p>
+<blockquote>
+<p>Picture with plot, all points in the y-axis![[2.1. The 3 body problem 2022-11-15 12.31.55.excalidraw]]</p>
+</blockquote>
+<p>In this case we have a <strong>center x center</strong>: we have no info about the stability for the RTBP.</p>
+<h6 id="case-2-mumu_r">Case 2: <span class="arithmatex">\(\mu=\mu_{R}\)</span><a class="headerlink" href="#case-2-mumu_r" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(\lambda^{2}= \frac{-1}{2}\Rightarrow \lambda = \pm \frac{1}{\sqrt{2}}i\)</span></p>
+<blockquote>
+<p>Picture with plot, all points in the y-axis</p>
+</blockquote>
+<p>This is a <strong>degenerate center x center</strong> (<span class="arithmatex">\(\omega_{1}= \omega_{2}=\omega\)</span>)</p>
+<h6 id="case-3-mu_rmu12">Case 3: <span class="arithmatex">\(\mu_{R}&lt;\mu&lt;1/2\)</span><a class="headerlink" href="#case-3-mu_rmu12" title="Permanent link">¶</a></h6>
+<div class="arithmatex">\[\lambda^{2}= \frac{-1\pm ai}{2} \Rightarrow \lambda = \begin{cases}
+\quad\lambda_{1} \\
+\quad\bar{\lambda}_{1} \\
+-\lambda_{2} \\
+-\bar{\lambda}_{2}
+\end{cases} \]</div>
+<blockquote>
+<p>This is a <strong>complex saddle</strong>:
+  -There exists a 2d unstable manifold <span class="arithmatex">\(W^{u}(L_{4,5})\)</span>
+  -There exists a 2d stable manifold <span class="arithmatex">\(W^{s}(L_{4,5})\)</span></p>
+</blockquote>
+<p>It's unstable.</p>
+<h6 id="how-to-compute-it-numerically">How to compute it numerically?<a class="headerlink" href="#how-to-compute-it-numerically" title="Permanent link">¶</a></h6>
+<p>We have a tangent plane, we take a circle of initial conditions around the point and integrate forward/backward in time.</p>
+<h6 id="remark">Remark<a class="headerlink" href="#remark" title="Permanent link">¶</a></h6>
+<p>Another very important consequence of the type of eigenvalues is the existence of periodic orbits, guaranteed by Lyapunov Theorem:</p>
+<h5 id="lyapunov-theorem">Lyapunov Theorem<a class="headerlink" href="#lyapunov-theorem" title="Permanent link">¶</a></h5>
+<blockquote>
+<p>Ref Meyer-Hall-Offin book</p>
+</blockquote>
+<p>Assume that a system of ODE: <span class="arithmatex">\(<span class="arithmatex">\(\vec{x}' = \vec{f}(\vec{x}), \quad \vec{x}\in U\subset \mathbb{R}^{n}\)</span>\)</span>has a nondegenerate first integral <span class="arithmatex">\(H(\vec{x})\)</span> (that is, <span class="arithmatex">\(\nabla H(\vec{r}) \neq 0\)</span> for <span class="arithmatex">\(\vec{r}\)</span> a regular point), and an equilibrium point with chaaracteristic exponents <span class="arithmatex">\(\pm i\omega, \lambda_{3}, \dots, \lambda_{n}\)</span>.</p>
+<p>If <span class="arithmatex">\(\frac{\lambda_{j}}{i\omega} \notin \mathbb{Z}\)</span>, <span class="arithmatex">\(j=3, \dots, n\)</span>, then there exists a one-paramter family of periodic orbits emanating from the equilibrium point. Moreover, when approaching the equilibrium point along the family, the period tends to <span class="arithmatex">\(\frac{2\pi}{\omega}\)</span>.</p>
+<blockquote>
+<p>If I give the value of one parameter (which will be the first integral), then I can identify the orbit.</p>
+</blockquote>
+<h5 id="application-to-the-rtbp">Application to the RTBP<a class="headerlink" href="#application-to-the-rtbp" title="Permanent link">¶</a></h5>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\vec{X}' = \vec{F}(\vec{X}) \quad \vec{X}\in U\subset\mathbb{R}^{4}\)</span>\)</span>
+First integral: <span class="arithmatex">\(C(x, y, x', y') = 2\Omega(x, y) - (x'^{2}+y'^{2})\)</span> ([[Jacobi first integral]]).
+*Check: <span class="arithmatex">\(\nabla C = (2 \Omega_{x}, 2 \Omega_{y}, -2x', -2y') = \vec{0} \Longleftrightarrow \Omega_{x}= \Omega_{y}=x'=y' = 0 \Longleftrightarrow L_{i}, i=1, \dots, 5\)</span> </p>
+<h6 id="for-l_1-l_2-l_4">For <span class="arithmatex">\(L_{1}, L_{2}, L_{3}\)</span><a class="headerlink" href="#for-l_1-l_2-l_4" title="Permanent link">¶</a></h6>
+<p>Eigenvalues: <span class="arithmatex">\(\pm i \omega, \pm \lambda\)</span>, with <span class="arithmatex">\(\lambda \in \mathbb{R}\)</span>, we check
+<span class="arithmatex">\(<span class="arithmatex">\(\frac{\lambda}{i \omega} \notin \mathbb{Z}\)</span>\)</span>since <span class="arithmatex">\(\lambda\)</span> is always real and divided by an imaginary number it will never be an integer number.
+<span class="arithmatex">\(\Rightarrow\)</span> for any value of <span class="arithmatex">\(\mu\)</span>, there exists a one-parameter family of periodic orbits emanating at <span class="arithmatex">\(L_{1,2,3}\)</span> and the period of the periodic orbits tend to <span class="arithmatex">\(\frac{2\pi}{\omega}\)</span> (when approaching <span class="arithmatex">\(L_{i}\)</span>)</p>
+<blockquote>
+<p>Check picture</p>
+</blockquote>
+<h6 id="for-l_4-l_6">For <span class="arithmatex">\(L_{4}, L_{5}\)</span><a class="headerlink" href="#for-l_4-l_6" title="Permanent link">¶</a></h6>
+<ul>
+<li><strong>Case: <span class="arithmatex">\(\mu = \mu_{R}\)</span></strong>, 
+    then <span class="arithmatex">\(\omega_{1}=\omega_{2}=\omega\)</span>, so the coefficient will be 1, an integer number.</li>
+<li><strong>Case: <span class="arithmatex">\(\mu_{R}&lt;\mu&lt;1/2\)</span></strong>
+    we don't have exponents in the form of <span class="arithmatex">\(\pm i \omega\)</span>, so I cannot apply the formula.</li>
+<li>
+<p><strong>Case : <span class="arithmatex">\(0 &lt; \mu &lt; \mu_{R}\)</span></strong>
+    eigenvalues <span class="arithmatex">\(\pm i\omega_{1}, \pm i\omega_{2}\)</span> (<span class="arithmatex">\(\omega_{1}&gt;\omega_{2}, \, \omega_{1}^{2}&gt; \frac{1}{2}&gt;\omega_{2}^{2}\)</span>).</p>
+<ul>
+<li><strong>First case</strong>
+    We have <span class="arithmatex">\(0 &lt;\frac{ \pm i \omega_{2}}{i\omega_{1}} = \frac{\omega_{2}}{\omega_{1}} &lt; 1\)</span> (since <span class="arithmatex">\(\omega_{1}&gt;\omega_{2}\)</span>) , then <span class="arithmatex">\(\frac{\pm i \omega_{2}}{i\omega_{1}} \notin \mathbb{Z} \Rightarrow\)</span> There exists a one-parameter family of periodic orbits emanating at <span class="arithmatex">\(L_{4}\)</span> and <span class="arithmatex">\(L_{5}\)</span> and the period tends to <span class="arithmatex">\(2\pi/\omega_{1}\)</span>: the so called family of <strong>Lyapunov periodic orbits of short period</strong> .  </li>
+<li><strong>Second case</strong>
+    We have <span class="arithmatex">\(\frac{ \pm i \omega_{2}}{i\omega_{1}} = \frac{\omega_{2}}{\omega_{1}} \notin \mathbb{Z}\)</span>
+    Let us show that this is true for <span class="arithmatex">\(\mu \neq \mu_r\)</span>, <span class="arithmatex">\(\mu_{r}=\frac{1}{2}-\frac{1}{2}\left(\frac{1-16r^2}{27(r^{2}+1)^{2}}\right)^{\frac{1}{2}}\)</span>, for <span class="arithmatex">\(r=1, 2, 3...\)</span> then <span class="arithmatex">\(\frac{\omega_{1}}{\omega_{2}\notin}\mathbb{Z}\)</span>.
+    We assume now <span class="arithmatex">\(\frac{\omega_{1}}{\omega_{2}}\)</span>, which is equivalent to
+    <span class="arithmatex">\(<span class="arithmatex">\(\frac{\frac{1}{\sqrt{2}}\sqrt{1+x}}{\frac{1}{\sqrt{2}}\sqrt{1-x}}= r\)</span>\)</span>
+    where <span class="arithmatex">\(x = \sqrt{1-27\mu(1-\mu)}\)</span> 
+    Same as,
+    <span class="arithmatex">\(<span class="arithmatex">\(\frac{1+x}{1-x}=r^{2} \Leftrightarrow x = \frac{r^{2}-1}{r^{2}+1} \Leftrightarrow \mu^{2}-\mu + \frac{4r^{2}}{27(r^{2}+1)^{2}}=0\)</span>\)</span>
+    same as
+    <span class="arithmatex">\(<span class="arithmatex">\(\mu = \frac{1}{2}\left(1 \pm \sqrt{1- \frac{16r^{2}}{27(r^{2}+1)}}\right)\)</span>\)</span>
+    Since <span class="arithmatex">\(\mu\)</span> must <span class="arithmatex">\(\mu\in(0, 1/2]\)</span>, then it means that the values of <span class="arithmatex">\(\mu\)</span> for which we have an integer ratio are <span class="arithmatex">\(<span class="arithmatex">\(\mu_{r} = \frac{1}{2} - \frac{1}{2}\left(1- \frac{16r^{2}}{27(r^{2}+1)}\right)^\frac{1}{2}\)</span>\)</span>
+    If <span class="arithmatex">\(\mu \neq \mu_{r}\)</span>, <span class="arithmatex">\(r=1, 2...\)</span> then there exists a one-parameter family of Lyapunov periodic orbits emanating at <span class="arithmatex">\(L_{4,5}\)</span> and the period tends to <span class="arithmatex">\(\frac{2\pi}{\omega_{2}}\)</span>when approaching <span class="arithmatex">\(L_{4,5}\)</span>: the so called <strong>Lyapunov family of periodic orbits of long period</strong>.</li>
+</ul>
+<blockquote>
+<p>So, when <span class="arithmatex">\(\mu\)</span> is different from <span class="arithmatex">\(\mu_{r}\)</span>, then the ratio won't be an integer ratio. We will demonstrate the opposite.</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="recap-computation-of-unstable-manifolds-taking-the-linear-approximation">Recap: Computation of unstable manifolds taking the linear approximation<a class="headerlink" href="#recap-computation-of-unstable-manifolds-taking-the-linear-approximation" title="Permanent link">¶</a></h4>
+<p>![[Unstable_manifold_computation]]
+We have a circle of initial conditions:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+s_{1} &amp;= r \cos{\theta} \\
+s_{2} &amp;= r \sin{\theta}
+\end{cases}\)</span>\)</span>
+for <span class="arithmatex">\(\theta \in [0, 2\pi]\)</span> and <span class="arithmatex">\(r\)</span> small and for each initial condition we integrate forward in time. However, we will see a more precise way to do this.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Chapter 2: Equilibrium points and stability" class="md-footer__link md-footer__link--prev" href="../2.%20Equilibrium%20points%20and%20stability/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Chapter 2: Equilibrium points and stability
+            </div>
+</div>
+</a>
+<a aria-label="Next: 2.2 Expansion of parametrizations of invariant manifolds (for flows)" class="md-footer__link md-footer__link--next" href="../2.2%20Expansion%20of%20parametrizations%20of%20invariant%20manifolds%20%28for%20flows%29/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              2.2 Expansion of parametrizations of invariant manifolds (for flows)
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

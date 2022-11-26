@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>2.2 Expansion of parametrizations of invariant manifolds (for flows) - Lecture notes - MAMME</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#22-expansion-of-parametrizations-of-invariant-manifolds-for-flows">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Lecture notes - MAMME" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lecture notes - MAMME
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              2.2 Expansion of parametrizations of invariant manifolds (for flows)
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="bluegrey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lecture notes - MAMME" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Lecture notes - MAMME
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Lecture Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Mathematical models in biology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mathematical models in biology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Mathematical models in biology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/">
+        Mathematicals Models in Biology - An introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Evolutionary%20models%20lessons/">
+        Evolutionary models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Genomics/">
+        Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Introduction%20class%20%20to%20MMiB/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Outline%20-%20Mathematical%20models%20in%20Biology/">
+        Mathematical models in Biology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetic%20reconstruction%20lesson/">
+        Phylogenetic reconstruction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetics%20and%20Genomics%20-%20Outline/">
+        Phylogenetics and Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Population%20dynamics%20lecture/">
+        Population dynamics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Evolutionary%20models/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Phylogenetic%20Reconstruction/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Population%20Dynamics/">
+        Projects
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Numerical Methods for Dynamical Systems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Numerical Methods for Dynamical Systems" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Numerical Methods for Dynamical Systems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00.%20Introduction%20to%20the%20class%20to%20NMDS/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.1.%20Preliminaries%20-%20Continuous%20dynamical%20systems/">
+        Preliminaries: Continuous dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.2.%20Preliminaries%20-%20Discrete%20dynamical%20systems/">
+        Discrete dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.3.%20Variational%20equations/">
+        Variational equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.4.%20Poincar%C3%A9%20map/">
+        Poincaré map
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.%20Equilibrium%20points%20and%20stability/">
+        Chapter 2: Equilibrium points and stability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.1.%20The%203%20body%20problem/">
+        2.1. The 3 body problem
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          2.2 Expansion of parametrizations of invariant manifolds (for flows)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        2.2 Expansion of parametrizations of invariant manifolds (for flows)
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-expansion-of-parametrizations-of-invariant-manifolds-for-flows">
+    2.2. Expansion of parametrizations of invariant manifolds (for flows)
+  </a>
+<nav aria-label="2.2. Expansion of parametrizations of invariant manifolds (for flows)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motivation">
+    Motivation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#goal">
+    Goal
+  </a>
+<nav aria-label="Goal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-invariance-equation">
+    Def: Invariance equation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-parametrization-method">
+    The parametrization method
+  </a>
+<nav aria-label="The parametrization method" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-1">
+    Remark 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-2">
+    Remark 2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-3">
+    Remark 3
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolution-of-the-invariance-equation-up-to-a-high-order">
+    Resolution of the invariance equation (up to a high order)
+  </a>
+<nav aria-label="Resolution of the invariance equation (up to a high order)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notation">
+    Notation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#another-notation">
+    Another notation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolution">
+    Resolution
+  </a>
+<nav aria-label="Resolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lhs">
+    LHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rhs">
+    RHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rhs-and-lhs">
+    RHS and LHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap">
+    Recap:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equations-components-id1-dots-n">
+    Equations (components) \(i=d+1, \dots, n\)
+  </a>
+<nav aria-label="Equations (components) \(i=d+1, \dots, n\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-primary-external-resonances">
+    Def: Primary (external) resonances
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equations-components-i1-dots-d">
+    Equations (components) \(i=1, \dots, d\)
+  </a>
+<nav aria-label="Equations (components) \(i=1, \dots, d\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-secondary-internal-resonances">
+    Def: Secondary (internal) resonances
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments:
+  </a>
+<nav aria-label="Comments:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comment-1">
+    Comment 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comment-2">
+    Comment 2
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples">
+    Examples
+  </a>
+<nav aria-label="Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-by-hand">
+    Example 1 (by hand)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-2-the-lorenz-manifold">
+    Example 2: The Lorenz manifold
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20220928%20NMDS%20Assignment%201/">
+        Assignment 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221005%20NMDS%20Assignment%202/">
+        Assignment 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221011%20NMDS%20Assignment%203/">
+        Assignment 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Algebraic%20group/">
+        Algebraic group
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Assignment%204/">
+        Assignment 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../First%20integral/">
+        First integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Jordan%20matrix/">
+        Jordan matrix
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Outline%20-%20Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Outline   Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Separatrix/">
+        Separatrix
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-expansion-of-parametrizations-of-invariant-manifolds-for-flows">
+    2.2. Expansion of parametrizations of invariant manifolds (for flows)
+  </a>
+<nav aria-label="2.2. Expansion of parametrizations of invariant manifolds (for flows)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motivation">
+    Motivation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#goal">
+    Goal
+  </a>
+<nav aria-label="Goal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-invariance-equation">
+    Def: Invariance equation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-parametrization-method">
+    The parametrization method
+  </a>
+<nav aria-label="The parametrization method" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-1">
+    Remark 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-2">
+    Remark 2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#remark-3">
+    Remark 3
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolution-of-the-invariance-equation-up-to-a-high-order">
+    Resolution of the invariance equation (up to a high order)
+  </a>
+<nav aria-label="Resolution of the invariance equation (up to a high order)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notation">
+    Notation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#another-notation">
+    Another notation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resolution">
+    Resolution
+  </a>
+<nav aria-label="Resolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lhs">
+    LHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rhs">
+    RHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rhs-and-lhs">
+    RHS and LHS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recap">
+    Recap:
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equations-components-id1-dots-n">
+    Equations (components) \(i=d+1, \dots, n\)
+  </a>
+<nav aria-label="Equations (components) \(i=d+1, \dots, n\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-primary-external-resonances">
+    Def: Primary (external) resonances
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equations-components-i1-dots-d">
+    Equations (components) \(i=1, \dots, d\)
+  </a>
+<nav aria-label="Equations (components) \(i=1, \dots, d\)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-secondary-internal-resonances">
+    Def: Secondary (internal) resonances
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments:
+  </a>
+<nav aria-label="Comments:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comment-1">
+    Comment 1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comment-2">
+    Comment 2
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples">
+    Examples
+  </a>
+<nav aria-label="Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-by-hand">
+    Example 1 (by hand)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-2-the-lorenz-manifold">
+    Example 2: The Lorenz manifold
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<p>Motivation: [[Motivation for expansion of parametrizations of invariant manifolds (for flows)]]</p>
+<h2 id="22-expansion-of-parametrizations-of-invariant-manifolds-for-flows">2.2. Expansion of parametrizations of invariant manifolds (for flows)<a class="headerlink" href="#22-expansion-of-parametrizations-of-invariant-manifolds-for-flows" title="Permanent link">¶</a></h2>
+<blockquote>
+<p><strong>Reference</strong>: <em>The parametrization method for invariant manifolds</em> Alex Haro, Marta Canadell, Jordi Lluís Figueras, ALejandro Luque, Josep M. Mondelo.
+<strong>Theoretical background</strong>: Xavier Cabré, Rafel de la Llave, Ernest Fontich (3 papers)</p>
+</blockquote>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">¶</a></h3>
+<p>Assume <span class="arithmatex">\(Z' = G(Z)\)</span> as system of <span class="arithmatex">\(n\)</span> ODE, <span class="arithmatex">\(Z \in U \subset \mathbb{R}^{n}\)</span>, <span class="arithmatex">\(Z_0\)</span> an equilibrium point  such that the eigenvalues of <span class="arithmatex">\(DG(Z_0)\)</span> are <span class="arithmatex">\(\lambda_{1}, \lambda_{2}, \dots, \lambda_{n}\)</span> with <span class="arithmatex">\(\lambda_{1}, \lambda_{2} &gt; 0\)</span>. We know, thus, there exists a 2d unstable invariant manifold.</p>
+<ul>
+<li>For the linearized system, we take the <span class="arithmatex">\(\vec{v}_{1}^{u}, \vec{v}_{2}^{u}\)</span> eigenvectors. If <span class="arithmatex">\(\lambda_{2}&gt; \lambda_{1} &gt; 0\)</span>, then <span class="arithmatex">\(\lambda_{2}\)</span> is the fast  dimension. The whole plane is the unstable manifold.
+    ![[linear_Wu|200]]</li>
+<li>For the non-linear original system, we have a 2d invariant manifold, <span class="arithmatex">\(W^{u}\)</span>.
+    <span class="arithmatex">\(<span class="arithmatex">\(Z_{0} = Z_{0} + s_{1}\vec{v}_{1}^{u} + s_{2}\vec{v}_{2}^{u}\)</span>\)</span>
+    with <span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+s_{1} &amp;= r\cos{\theta} \\
+s_{2} &amp;= r\sin{\theta}
+\end{cases}\)</span>\)</span>
+    with <span class="arithmatex">\(r\)</span> <em>very</em> small and integrate forward in time. That's how we typically do it.</li>
+</ul>
+<p>See [[Motivation for expansion of parametrizations of invariant manifolds (for flows)]] and <a href="http://localhost:8888/notebooks/UPC/MAMME/NMD/Assignments/Motivation%20-%20parametrizations%20of%20invariant%20manifolds.ipynb">Jupyter Notebook</a> for more.</p>
+<h3 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">¶</a></h3>
+<p>To obtain a high order power expansion for a parametrization of invariant manifolds of an equilibrim point of a vector field.</p>
+<p>Let us start <span class="arithmatex">\(Z' = G(Z)\)</span>, <span class="arithmatex">\(Z_0\)</span> equilibrium point, <span class="arithmatex">\(Z \in U \subset \mathbb{R}^{n}\)</span>. Assume <span class="arithmatex">\(G(Z_{0)}= 0\)</span>, and the following eigenvalues:
+<span class="arithmatex">\(<span class="arithmatex">\(P^{-1}DG(Z_{0})P = \begin{pmatrix}\lambda_{1} &amp; \dots  \\  &amp; \ddots  &amp;   \\  &amp; \cdots &amp; \lambda_{n}\end{pmatrix}\)</span>\)</span>
+We do a change of variables: <span class="arithmatex">\(z = Z_{0} + P \cdot z\)</span>. We obtain
+<span class="arithmatex">\(<span class="arithmatex">\(z' = F(z),\)</span>\)</span>
+where <span class="arithmatex">\(F(z) = P^{-1}G(Z_{0}+P\cdot z)\)</span>.</p>
+<blockquote>
+<p><span class="arithmatex">\(Z' = P z' \Rightarrow z' = P^{-1}Z' = P^{-1}G(Z) = P^{-1}G(Z_{0}+ P\cdot z)\)</span></p>
+</blockquote>
+<p>Now <span class="arithmatex">\(F(0) = 0\)</span>, <span class="arithmatex">\(DF(0) = P^{-1}DG(Z_{0)P}= \begin{pmatrix}\lambda_{1} &amp; \dots  \\  &amp; \ddots  &amp;   \\  &amp; \cdots &amp; \lambda_{n}\end{pmatrix}\)</span>
+My input used to be <span class="arithmatex">\(Z_{0}, G\)</span> and now it's <span class="arithmatex">\(F\)</span>.</p>
+<p>We consider the Taylor expansion:
+<span class="arithmatex">\(<span class="arithmatex">\(F(z) = DF(0)z + F_{2}(z) + F_{3}(z) + \dots\)</span>\)</span>
+and this will be my input. Notice that <span class="arithmatex">\(F_{2}, F_{3}\)</span> are the 2nd, 3rd order terms.</p>
+<p>Now we have this input and we want to compute the invariant manifold of this zero. </p>
+<p>We choose the first <span class="arithmatex">\(d\)</span> eigenvalues of <span class="arithmatex">\(DF(0)\)</span> (we can always reorder them) and let <span class="arithmatex">\(V^{d}\)</span> be a <span class="arithmatex">\(d\)</span>dimensional linear subspace spanned by the <span class="arithmatex">\(d\)</span> eigenvectors. (Assume, for example, that <span class="arithmatex">\(\lambda_{1\dots d}&gt;0\)</span> <span class="arithmatex">\(\Rightarrow\)</span> there exists a <span class="arithmatex">\(d\)</span>-dimensional unstable invariant manifold <span class="arithmatex">\(\mathfrak{W}^u\)</span> <em>(this is a gothic W)</em>)</p>
+<p>Our goal is to obtain a high order approximation of the <span class="arithmatex">\(d\)</span>-dimensional manifold <span class="arithmatex">\(\mathfrak{W}^u\)</span> for system <span class="arithmatex">\(z' = F(z)\)</span> tangent to <span class="arithmatex">\(V^{d}\)</span></p>
+<p>In our example, <span class="arithmatex">\(W(s) = \begin{pmatrix}v_{1}^{1} &amp; v_{1}^{2} &amp; \dots &amp; v_{1}^{d} \\ \vdots &amp; \vdots  &amp; &amp; \vdots  \\ v_{n}^{1} &amp; v_{n}^{2} &amp; \dots &amp; v_{n}^{d}\end{pmatrix} \begin{pmatrix}s_{1}  \\ \vdots  \\ s_{d}\end{pmatrix} = s_{1}\vec{v}^{1}+\dots +s_{d}\vec{v}^{d} = \begin{pmatrix}v_{1}^{1} &amp; v_{1}^{2} &amp; \dots &amp; v_{1}^{d}  &amp; \cdots \\ \vdots &amp; \vdots  &amp; &amp; \vdots &amp;   \\ v_{n}^{1} &amp; v_{n}^{2} &amp; \dots &amp; v_{n}^{d} &amp; \cdots\end{pmatrix}\begin{pmatrix}s_{1}  \\ \vdots  \\ s_{d} \\ 0  \\ \vdots \\ 0 \end{pmatrix}\)</span>
+where the last matrix is <span class="arithmatex">\(P\)</span>.</p>
+<p>With the original variables <span class="arithmatex">\(W(s) = Z_{0}+ P(\begin{pmatrix}s_{1} \\ \vdots \\ s_{d} \\ 0 \\ \vdots \\  0 \end{pmatrix}) = Z_{0}+s_{1}\vec{v}^{1}+\dots +s_{d}\vec{v}^{d}\)</span>.
+This is an approximation for parametrizing the plane. But we are not interested in the plane now, only in the "border".
+![[parametrization_nmds|200]]</p>
+<p>More concretely, we look for a parametrization
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+W: \tilde{U}\subset \mathbb{R}^{d} &amp;\longrightarrow \mathbb{R}^n\\
+s &amp;\longrightarrow W(s) = z
+\end{align*}\)</span>\)</span>
+of the invariant manifold <span class="arithmatex">\(\mathfrak{W}\)</span> where <span class="arithmatex">\(s = (s_{1}, \dots, s_{d})\)</span> are the coordinates (parameters) of the parametrization and <span class="arithmatex">\(W(0) = 0\)</span>. The internal dynamics on the manifold is described by a vector field
+<span class="arithmatex">\(<span class="arithmatex">\(s' = f(s)\)</span>\)</span>
+I have two flows, one for <span class="arithmatex">\(z' = F(z)\)</span>, <span class="arithmatex">\(\Phi_{t}\)</span> and one for <span class="arithmatex">\(s'=f(s)\)</span>, <span class="arithmatex">\(\phi_{t}\)</span>, with <span class="arithmatex">\(f(0) = 0\)</span>.</p>
+<p>So, we look for <span class="arithmatex">\(W\)</span> and <span class="arithmatex">\(f\)</span> such that is invariant by the flow of <span class="arithmatex">\(F\)</span>:
+1. <span class="arithmatex">\(\{W(s)\}_{s\in \tilde{W}\subset \mathbb{R}^{d}}\)</span> is invariant by the flow of <span class="arithmatex">\(F\)</span>.
+2. the internal dynamics of <span class="arithmatex">\(s\)</span> is given by <span class="arithmatex">\(s' =f(s)\)</span>
+That is, we want
+<span class="arithmatex">\(<span class="arithmatex">\(\Phi_{t}(W(\tilde{s})) = W(\phi_{t}(\tilde{s}))\)</span>\)</span></p>
+<p>Let us take <span class="arithmatex">\(\frac{d}{dt}\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(F(\Phi_{t}(W(\tilde{s}))) = DW(\phi_{t}(\tilde{s}))\cdot f(\phi_{t}(\tilde{s}))\)</span>\)</span></p>
+<blockquote>
+<p>we have that <span class="arithmatex">\(\phi_{t}(\tilde{s}) = s\)</span> and <span class="arithmatex">\(\Phi_{t}(W(\tilde{s})) = W(s)\)</span>.</p>
+</blockquote>
+<p>that is we want <span class="arithmatex">\(W(s)\)</span>, <span class="arithmatex">\(f(s)\)</span> such that</p>
+<h6 id="def-invariance-equation">Def: Invariance equation<a class="headerlink" href="#def-invariance-equation" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(<span class="arithmatex">\(F(W(s)) = DW(s)f(s)\)</span>\)</span>
+And, conversely, if the invariance equation is true, then (IC) is also tre (It can be proved).</p>
+<p>So, what we will do is to solve the invariance equation. </p>
+<p>A geometrical interpretation ![[geometrical_interpretation]]</p>
+<p>Unknowns: <span class="arithmatex">\(W(s), f(s)\)</span> and known is <span class="arithmatex">\(F\)</span></p>
+<h1 id="the-parametrization-method">The parametrization method<a class="headerlink" href="#the-parametrization-method" title="Permanent link">¶</a></h1>
+<p><em>Date</em>: 16-11-2022
+We have
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+Z' &amp;= G(Z), \quad Z_{0} \textrm{: an equilibrim point}\\
+Z &amp;= Z_{0}+Pz
+\end{align*}\)</span>\)</span> and we transform it so that <span class="arithmatex">\(<span class="arithmatex">\(z' = F(z)\)</span>\)</span> with 0 an equilibrium point: <span class="arithmatex">\(F(0) = 0\)</span>, <span class="arithmatex">\(DF(0) = \begin{pmatrix}\lambda_{1} &amp; &amp;  \\  &amp; \ddots  &amp;  \\  &amp; &amp; \lambda_{n}\end{pmatrix}\)</span>
+And we will do the expansion:
+<span class="arithmatex">\(<span class="arithmatex">\(F(z) = DF(0)z + F_{2}(z) + F_{3}(z) + \ldots = F_{1}(z) + F_{2}(z) + F_{3}(z) + \ldots\)</span>\)</span>
+and <span class="arithmatex">\(F_{1}=\begin{pmatrix}\lambda_{1}z_{1} \\ \vdots  \\ \lambda_{n}z_{n}\end{pmatrix} + \sum\limits_{k\geq2}F_{k}(z)\)</span>
+For example
+<span class="arithmatex">\(<span class="arithmatex">\(DF(0) = \begin{pmatrix}\lambda_{1}&gt;0 &amp; &amp; &amp; &amp; \\ &amp; \ddots &amp; &amp;  &amp;  \\  &amp; &amp; \lambda_{d}&gt;0 &amp; &amp;\\  &amp; &amp; &amp;\lambda_{d+1}&lt;0 &amp; &amp; &amp;\\  &amp; &amp; &amp; &amp;\ddots &amp; &amp; \\  &amp; &amp; &amp; &amp; &amp; &amp;\lambda_{n}&lt;0\end{pmatrix}\)</span>\)</span>
+There exists a d-dimensional unstable manifold</p>
+<p><strong>Specific goal</strong>: we look for a d-dim manifold, so we want:
+<span class="arithmatex">\(<span class="arithmatex">\(W(s) = \sum\limits_{k\geq1}W_{k}(s) = \begin{pmatrix}s_{1} \\ \vdots  \\ s_{d} \\ 0 \\ \vdots \\ 0\end{pmatrix} + \sum\limits_{k\geq2}W_{k}(s); \qquad f(s) = \begin{pmatrix}\lambda_{1}s_{1} \\ \vdots  \\ \lambda_{d}s_{d} \end{pmatrix} + \sum\limits_{k\geq2}f_{k}(s)\)</span>\)</span>
+where <span class="arithmatex">\((s_{1}, \ldots, s_{d}, 0, \ldots, 0)\)</span> is <span class="arithmatex">\(W_{1}(s)\)</span> and <span class="arithmatex">\(W(0) = 0\)</span>, <span class="arithmatex">\(f_{1} = (\lambda_{1}s_{1}, \dots)\)</span> and <span class="arithmatex">\(f(0) = 0\)</span>
+that are solution of the invariance equation (eq 4)
+<span class="arithmatex">\(<span class="arithmatex">\(F(W(s)) = DW(s)\cdot f(s)\)</span>\)</span>
+which comes from <span class="arithmatex">\(\phi_{t}(W(s)) = W(\phi_{t}(s))\)</span>.</p>
+<h6 id="remark-1">Remark 1<a class="headerlink" href="#remark-1" title="Permanent link">¶</a></h6>
+<p>Taking <span class="arithmatex">\(W(s)\)</span> and <span class="arithmatex">\(f(s)\)</span> as above the invariance equation (4) is satisfied at first order:
+<span class="arithmatex">\(<span class="arithmatex">\([F(W(s))]_{1} = F_{1}(W_{1}(s)) = F_{1}\begin{pmatrix}s_{1} \\ \vdots  \\ s_{d} \\ 0 \\ \vdots \\ 0\end{pmatrix} = \begin{pmatrix}\lambda_{1}s_{1} \\ \vdots  \\ \lambda_{d}s_{d} \\ 0 \\ \vdots \\ 0\end{pmatrix}\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\([DW(s)f(s)]_{1}=DW_{1}(s)f_{1}(s) = \begin{pmatrix}I_{d\times d \\ 0}\end{pmatrix}\begin{pmatrix}\lambda_{1}s_{1} \\ \vdots  \\ \lambda_{d}s_{d}\end{pmatrix} = \begin{pmatrix}\lambda_{1}s_{1} \\ \vdots  \\ \lambda_{d}s_{d} \\ 0  \\ \vdots  \\ 0\end{pmatrix}\)</span>\)</span>
+so <span class="arithmatex">\([F(W(s))]_{1} = [DW(s)f(s)]_{1}\)</span></p>
+<blockquote>
+<p>We know that <span class="arithmatex">\(DW_{1}(s)\)</span> is the derivative of the vector <span class="arithmatex">\(W_{1}\)</span>, which is just the <span class="arithmatex">\(s\)</span> variables and zeros with respect to <span class="arithmatex">\(s\)</span>, so we have <span class="arithmatex">\(DW_{1}(s) \in \mathbb{R}^{n\times s}\)</span> and we will have an identity matrix stacked with a zero matrix</p>
+<p>Order k of <span class="arithmatex">\(f\)</span> means order <span class="arithmatex">\(k\)</span> of z means a homogeneous polynomial of degree k.
+<span class="arithmatex">\([F]_1\)</span> means expansion of order 1</p>
+</blockquote>
+<h6 id="remark-2">Remark 2<a class="headerlink" href="#remark-2" title="Permanent link">¶</a></h6>
+<p>Once we have done the procedure and we have obtained the parametrization<span class="arithmatex">\(W(s)\)</span> up to a given order, that is <span class="arithmatex">\(z = W(s)\)</span>
+we apply the <strong>change of variables</strong> in order to obtain the parametrization in original variables:
+<span class="arithmatex">\(<span class="arithmatex">\(W^{\textrm{orig var}}(s) = Z_{0}+P\cdot W(s)\)</span>\)</span></p>
+<blockquote>
+<p>So we are only gonna focus on <span class="arithmatex">\(W(s)\)</span></p>
+</blockquote>
+<h6 id="remark-3">Remark 3<a class="headerlink" href="#remark-3" title="Permanent link">¶</a></h6>
+<p><strong>Example 1d</strong>
+For example <span class="arithmatex">\(Z' =G(Z)\)</span>, <span class="arithmatex">\(Z_{0}\)</span> with <span class="arithmatex">\(DF(0) = \begin{pmatrix}\lambda_{1}&gt;0 &amp;   &amp;   &amp; \\ \lambda_{2} &amp;   &amp;  \\  &amp;   &amp;  \ddots  &amp;  \\  &amp;   &amp;   &amp; \lambda_{n}\end{pmatrix} \Rightarrow \exists\)</span> a 1d unstable manifold <span class="arithmatex">\(W^u\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(P = \begin{pmatrix}v_{1}^{1}  &amp; \cdots &amp; \cdots \\ \vdots &amp;  \cdots &amp; \cdots \\ v_{n}^{1} &amp; \cdots &amp; \cdots \end{pmatrix}\)</span>\)</span>
+if we take <span class="arithmatex">\(W(s)\)</span> up to first order: <span class="arithmatex">\(W(s) \approx W_{1}(s) = \begin{pmatrix}s_{1} \\ 0 \\ \vdots  \\ 0\end{pmatrix}\)</span>
+then in the original variable
+<span class="arithmatex">\(<span class="arithmatex">\(W^{\textrm{orig variable}}(s) \approx Z_{0}+PW_{1}(s) = Z_{0}+\begin{pmatrix}v_{1}^{1}  &amp; \cdots &amp; \cdots \\ \vdots &amp;  \cdots &amp; \cdots \\ v_{n}^{1} &amp; \cdots &amp; \cdots \end{pmatrix}\begin{pmatrix}s_{1} \\ 0 \\ \vdots  \\ 0\end{pmatrix} = Z_{0}+s_{1}v^{1}\)</span>\)</span>
+which is what we've done so far. </p>
+<blockquote>
+<p>Typically for linear approximations <span class="arithmatex">\(s\in(0, 10^{-6})\)</span></p>
+</blockquote>
+<p><strong>Example 2d</strong>
+<span class="arithmatex">\(Z' =G(Z)\)</span>, <span class="arithmatex">\(Z_{0}\)</span> with <span class="arithmatex">\(DF(0) = \begin{pmatrix}\lambda_{1}&gt;0 &amp;   &amp;   &amp; \\ \lambda_{2}&gt;0 &amp;   &amp;  \\  &amp;   &amp;  \ddots  &amp;  \\  &amp;   &amp;   &amp; \lambda_{n}\end{pmatrix} \Rightarrow \exists\)</span> a 2d unstable manifold <span class="arithmatex">\(W^u\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(P = \begin{pmatrix}v_{1}^{1}  &amp; v_{1}^2 &amp; \cdots &amp; \cdots \\ \vdots &amp; \vdots &amp;  \cdots &amp; \cdots \\ v_{n}^{1} &amp; v_{n}^2 &amp; \cdots &amp; \cdots \end{pmatrix}\)</span>\)</span>
+if we take <span class="arithmatex">\(W(s)\)</span> up to first order: <span class="arithmatex">\(W(s) \approx W_{1}(s) = \begin{pmatrix}s_{1} \\ s_{2} \\ \vdots  \\ 0\end{pmatrix}\)</span>
+then in the original variable
+<span class="arithmatex">\(<span class="arithmatex">\(W^{\textrm{orig variable}}(s) \approx Z_{0}+PW_{1}(s) = Z_{0}+\begin{pmatrix}v_{1}^{1} &amp; v_{1}^{2}  &amp; \cdots &amp; \cdots \\ \vdots &amp; \vdots &amp;  \cdots &amp; \cdots \\ v_{n}^{1} &amp; v_{n}^{2} &amp; \cdots &amp; \cdots \end{pmatrix}\begin{pmatrix}s_{1} \\ s_{2} \\ 0 \\ \vdots  \\ 0\end{pmatrix} = Z_{0}+sv^{1} + s_{2}v^{2}\)</span>\)</span>
+which is what we have done so far.</p>
+<h3 id="resolution-of-the-invariance-equation-up-to-a-high-order">Resolution of the invariance equation (up to a high order)<a class="headerlink" href="#resolution-of-the-invariance-equation-up-to-a-high-order" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[F(W(s)) = DF(W(s))f(s)\]</div>
+<h6 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">¶</a></h6>
+<p>We know <span class="arithmatex">\(F(z)\)</span> (this is my input) where <span class="arithmatex">\(F_{k}\)</span> means
+<span class="arithmatex">\(<span class="arithmatex">\(F_{k}^{i}=\sum\limits_{|l|=k=l_{1}+\dots + l_{n}} F^{i}_{k,l}z^{l}=\sum\limits_{|l| = k}F^{i}_{k,l} z_{1}^{l_{1}} \cdots z_{n}^{l_{n}}\)</span>\)</span>
+For the <span class="arithmatex">\(k\)</span> term, we have <span class="arithmatex">\(n\)</span> components. Each component <span class="arithmatex">\(i\)</span> is a homogeneous polynomial of degree <span class="arithmatex">\(k\)</span> in variables <span class="arithmatex">\(z_{1, \dots, n}\)</span>. </p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(W_{k}^{i}(s) = \sum\limits_{|m|=k=m_{1}+\dots + m_{d}} W^{i}_{k,m}s^{m}=\sum\limits_{|m| = k}W^{i}_{k,l} s_{1}^{m_{1}} \cdots s_{d}^{m_{d}} \qquad i=1, \dots, n\)</span>\)</span>
+For <span class="arithmatex">\(W(s)\)</span>, each term of the expansion <span class="arithmatex">\(W_{k}\)</span> will have <span class="arithmatex">\(n\)</span> components and each component is a homogeneous polynomial of  degree <span class="arithmatex">\(k\)</span> .</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(f_{k}^{i}(s) = \sum\limits_{|m|=k} f^{i}_{k,m}s^{m}=\sum\limits_{|m| = k}f^{i}_{k,l} s_{1}^{m_{1}} \cdots s_{d}^{m_{d}} \qquad i=1, \dots, d\)</span>\)</span>
+and <span class="arithmatex">\(f\)</span> will have <strong>d</strong> components.</p>
+<h6 id="another-notation">Another notation<a class="headerlink" href="#another-notation" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(z = (x, y)\)</span> where <span class="arithmatex">\(x\)</span> is the first <span class="arithmatex">\(d\)</span> components and <span class="arithmatex">\(y\)</span> are the following <span class="arithmatex">\(n-d\)</span> components.
+<span class="arithmatex">\(\lambda^{x}\)</span> is the first <span class="arithmatex">\(d\)</span> eigenvalues
+<span class="arithmatex">\((\lambda^{x}, m) = \lambda_{1}m_{1}+\dots +\lambda_{d}m_{d}\)</span> is the scalar product.</p>
+<h4 id="resolution">Resolution<a class="headerlink" href="#resolution" title="Permanent link">¶</a></h4>
+<p>We want to solve the invariance equation at order <span class="arithmatex">\(k\)</span> assuming that it is satisfied up to order <span class="arithmatex">\(k-1\)</span>, that is,
+- we know <span class="arithmatex">\(W_{1}, \dots,  W_{k-1}, f_{1}, \dots, f_{k-1}\)</span> 
+- we want <span class="arithmatex">\(W_{k}, f_{k}\)</span>, that is <span class="arithmatex">\(<span class="arithmatex">\(W_{k}=\begin{pmatrix}W_{k}^{1} \\ \vdots \\ W_{k}^{n}\end{pmatrix} \quad f_{k}=\begin{pmatrix}f_{k}^{1} \\ \vdots \\ f_{k}^d\end{pmatrix}\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\([F(W(s))]_{k}=[DW(s)f(s)]_{k}\)</span>\)</span></p>
+<h6 id="lhs">LHS<a class="headerlink" href="#lhs" title="Permanent link">¶</a></h6>
+<p>Let us consider the left hand side terms of order <span class="arithmatex">\(k\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+[F(W(s))]_{k}&amp;= [F(W_{\leq k})]_{k}=[F(W_{&lt;k} + W_{k})]_{k} =(taylor) = [F(W_{&lt;k})]_{k}+DF(0)W_{k} \\
+&amp;= [F(W_{&lt;k})]_{k} + \begin{pmatrix}\lambda_{1} &amp;   &amp;  \\  &amp; \ddots &amp;  \\  &amp;   &amp; \lambda_n\end{pmatrix}\begin{pmatrix}W_{k}^1\\
+\vdots \\ W_{k}^n\end{pmatrix}\\
+&amp;= [F(W_{&lt;k})]_{k} + \begin{pmatrix}\lambda_{1}W_{k}^{1}\\
+\vdots\\
+ \lambda_{n}W_{k}^{n}\end{pmatrix}\\
+&amp;= (I) + (II)\end{align*}\)</span>\)</span>
+where <span class="arithmatex">\((I)\)</span> is known and <span class="arithmatex">\((II)\)</span> is unknown</p>
+<blockquote>
+<p>check at home the first line</p>
+</blockquote>
+<h6 id="rhs">RHS<a class="headerlink" href="#rhs" title="Permanent link">¶</a></h6>
+<p>Let us consider the right hand side
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+[DW(s)f(s)]_{k} &amp;= \sum\limits_{l=0}^{k}[DW]_{l}\cdot [f]_{k-l}= \sum\limits_{l=0}^{k-1}DW_{l+1}\cdot f_{k-l} \\
+&amp;=DW_{1}f_{k} + DW_{k}f_{1}+\sum\limits_{l=1}^{k-2}DW_{l+1}f_{k-l}\\
+&amp;=DW_{1}f_{k} + DW_{k}f_{1}+\sum\limits_{\tilde{l}=2}^{k-1}DW_{\tilde{l}}f_{k-\tilde{l}+1}\\
+&amp;= DW_{1}f_{k} + DW_{k}f_{1}+\sum\limits_{{l}=2}^{k-1}DW_{{l}}f_{k-{l}+1}\\
+&amp;= \begin{pmatrix}I\\ 0\end{pmatrix}f_{k} + DW_{k}\begin{pmatrix}\lambda_1s_1\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix}+\sum\limits_{{l}=2}^{k-1}DW_{{l}}f_{k-{l}+1}\\ &amp;= 
+\begin{pmatrix}f_{k}\\ 0\end{pmatrix} + DW_{k}\begin{pmatrix}\lambda_1s_1\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix}+\sum\limits_{{l}=2}^{k-1}DW_{{l}}f_{k-{l}+1} =  (III) + (IV) + (V)
+\end{align*}\)</span>\)</span>
+where <span class="arithmatex">\((III), (IV)\)</span> are unknown (because of <span class="arithmatex">\(f_{k}, DW_{k}\)</span>) and <span class="arithmatex">\((V)\)</span> is known.</p>
+<blockquote>
+<p>The first equal is due to <span class="arithmatex">\(DW, f\)</span> being homogeneous polynomials. The second equal is due to <span class="arithmatex">\([DW]_{l}=DW_{l+1}\)</span>. Then we also apply that <span class="arithmatex">\(f_{0}=0\)</span>. And <span class="arithmatex">\(f_{k}, W_{k}\)</span> are unknown.</p>
+</blockquote>
+<h6 id="rhs-and-lhs">RHS and LHS<a class="headerlink" href="#rhs-and-lhs" title="Permanent link">¶</a></h6>
+<div class="arithmatex">\[(I) + (II) = (III) + (IV) + (V) \Longleftrightarrow (IV)-(II)+(III)=(I)-(V)$$
+which means:
+$$ DW_{k}\begin{pmatrix}\lambda_1s_{1}\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix} - \begin{pmatrix}\lambda_{1}W_{k}^{1}\\
+\vdots\\
+ \lambda_{n}W_{k}^{n}\end{pmatrix}+ \begin{pmatrix}f^{1}_{k}\\ \vdots \\ f^{d}_{k} \\ 0  \\ \vdots \\  0\end{pmatrix} = [F(W_{&lt;k})]_{k}+\sum\limits_{{l}=2}^{k-1}DW_{{l}}f_{k-{l}+1} = R_{k} \textrm{ (known)}$$
+ Now we expand $W, f, R$ in monomials and notice
+ $$\begin{align*}
+W_{k}(s) &amp;=  \sum\limits_{|m|=k}W_{k,m}s_{1}^{m_{1}}\dots s_{d}^{m_{d}}\\
+\partial_{1}W_{k} &amp;=  \sum\limits_{|m|=k}W_{k,m}s_{1}^{m_{1}-1}\dots s_{d}^{m_{d}}\\
+\vdots\\
+\partial_{d}W_{k} &amp;=  \sum\limits_{|m|=k}W_{k,m}s_{1}^{m_{1}}\dots s_{d}^{m_{d}-1}\\
+\end{align*}$$
+and now
+$$\begin{align*}
+DW_{k}\begin{pmatrix}\lambda_1s_{1}\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix} &amp;=  \begin{pmatrix}\sum\limits_{|m|=k}W_{k,m}s_{1}^{m_{1}-1}\dots s_{d}^{m_{d}} &amp; \dots  &amp; \sum\limits_{|m|=k}W_{k,m}s_{1}^{m_{1}}\dots s_{d}^{m_{d}-1}\end{pmatrix}\begin{pmatrix}\lambda_1s_{1}\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix}\\
+&amp;= \begin{pmatrix}\sum\limits_{|m|=k}W^{1}_{k,m}s_{1}^{m_{1}-1}\dots s_{d}^{m_{d}} &amp; \dots  &amp; \sum\limits_{|m|=k}W^{1}_{k,m}s_{1}^{m_{1}}\dots s_{d}^{m_{d}-1}\\
+\vdots &amp; \cdots &amp; \vdots\\
+\sum\limits_{|m|=k}W^{n}_{k,m}s_{1}^{m_{1}-1}\dots s_{d}^{m_{d}} &amp; \dots  &amp; \sum\limits_{|m|=k}W^{n}_{k,m}s_{1}^{m_{1}}\dots s_{d}^{m_{d}-1}\end{pmatrix}\begin{pmatrix}\lambda_1s_{1}\\
+\vdots\\ \lambda_{d}s_{d}\end{pmatrix}\\
+&amp;= \sum\limits\begin{pmatrix}W_{k,m}^{1}(m_{1}\lambda_{1}+ \dots + m_d\lambda_{d}s^{m}\\ \ldots \\
+W_{k,m}^{n}(m_{1}\lambda_{1}+ \dots + m_d\lambda_{d}s^{m}\end{pmatrix} = \sum\limits \begin{pmatrix}W_{k,m}^{i}\\
+\vdots\\
+W_{k,m}^{n}\end{pmatrix}(\lambda^{x}, m)s^{m}\end{align*}\]</div>
+<hr/>
+<p><em>Date: 22-11-2022</em></p>
+<h5 id="recap">Recap:<a class="headerlink" href="#recap" title="Permanent link">¶</a></h5>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+Z' &amp;= G(Z) &amp; \qquad(1)\\
+Z &amp;=  Z_{0}+ Pz \\
+z' &amp;= F(z)  &amp; \qquad(2)
+\end{align*}\)</span>\)</span>
+with <span class="arithmatex">\(Z_0\)</span> an equilibrium point, <span class="arithmatex">\(F(0) = 0\)</span> and <span class="arithmatex">\(DF(0) = \begin{pmatrix}\lambda_{1} &amp; \cdots  &amp; 0 \\  \\ 0 &amp; \cdots  &amp; \lambda_{n}\end{pmatrix}\)</span>.
+<strong>Taylor expansion</strong>:
+<span class="arithmatex">\(<span class="arithmatex">\(F(z) = F_{1}(z) + F_{2}(z) + \dots = DF(0) + F_{2}+\dots\)</span>\)</span>
+<strong>Invariance equation</strong>
+<span class="arithmatex">\(<span class="arithmatex">\(\Phi_t(W(s))= W(\phi_{t}(s))\)</span>\)</span>
+and derivative respect <span class="arithmatex">\(t\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(F(W(s)) = DW(s)f(s)\)</span>\)</span>
+<strong>Goal</strong>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+W(s) &amp;=  \begin{pmatrix}s_{1}  \\ \vdots \\ s_{d} \\ 0 \\ \vdots \\ 0\end{pmatrix} + \sum\limits_{k\geq2}W_{k}(s)\\
+f(s) &amp;=  \begin{pmatrix}\lambda_{1}s_{1}  \\ \vdots \\ \lambda_{d}s_{d} \end{pmatrix} + \sum\limits_{k\geq2}f_{k}(s)
+\end{align*}\)</span>\)</span>
+and after: <span class="arithmatex">\(W^{\textrm{or var}}(s) = Z_{0}+ PW(s)\)</span>.</p>
+<p>Last session, we found:</p>
+<div class="arithmatex">\[DW_{k}\begin{pmatrix}\lambda_{1}s_{1}  \\ \vdots \\ \lambda_{d}s_{d} \end{pmatrix} - \begin{pmatrix}\lambda_{1}W_{k}^{1}  \\ \vdots \\ \lambda_nW_{n}^{d} \end{pmatrix} + \begin{pmatrix}f_{k}^{1} \\ \vdots \\ f_{k}^{d}  \\ 0 \\ \vdots \\ 0\end{pmatrix} = R_k$$
+And we can rewrite it as:
+$$\sum\limits_{|m|=k} \begin{pmatrix}W_{k,m}^{i}(\lambda^{x}, m)\\
+\vdots\\
+W_{k,m}^{n}(\lambda^{x}, m)\end{pmatrix}s^{m} - \sum\limits_{|m|=k}\begin{pmatrix}\lambda_{1}W_{k}^{1}  \\ \vdots \\ \lambda_nW_{n}^{d} \end{pmatrix}s_{m}+ \sum\limits_{|m|=k}\begin{pmatrix}f^{1}_{k,m}  \\ \vdots \\ f^{d}_{k,m} \\ 0 \\ \vdots \\ 0 \end{pmatrix}s_{m} = \sum\limits_{|m|=k}\begin{pmatrix}R^{1}_{k,m} \\ \vdots \\ R^{n}_{k,m}\end{pmatrix}s_m$$
+and we take common factor:
+$$\sum\limits_{|m|=k}\left(\begin{pmatrix}W_{k,m}^{i}(\lambda^{x}, m)\\
+\vdots\\
+W_{k,m}^{n}(\lambda^{x}, m)\end{pmatrix} - \begin{pmatrix}\lambda_{1}W_{k}^{1}  \\ \vdots \\ \lambda_nW_{n}^{d} \end{pmatrix}+ \begin{pmatrix}f^{1}_{k,m}  \\ \vdots \\ f^{d}_{k,m} \\ 0 \\ \vdots \\ 0 \end{pmatrix}\right)s_m  = \sum\limits_{|m|=k}\begin{pmatrix}R^{1}_{k,m} \\ \vdots \\ R^{n}_{k,m}\end{pmatrix}s_m\]</div>
+<blockquote>
+<p>We distinguish between the first <span class="arithmatex">\(d\)</span> components and from the <span class="arithmatex">\(d+1\)</span>-th to the <span class="arithmatex">\(n\)</span>-th component.</p>
+</blockquote>
+<h5 id="equations-components-id1-dots-n">Equations (components) <span class="arithmatex">\(i=d+1, \dots, n\)</span><a class="headerlink" href="#equations-components-id1-dots-n" title="Permanent link">¶</a></h5>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+(\lambda^{x}, m)W_{k,m}^{i} - \lambda_{i}W^{i}_{k,m}&amp;= R^{i}_{k,m}\\
+[(\lambda^{x},m) - \lambda_{i}]W^{i}_{k,m} &amp;=  R^{i}_{k,m} \qquad \textrm{cohomological eqs}
+\end{align*}\)</span>\)</span>
+And from the cohomological equations, <span class="arithmatex">\(\Rightarrow W^{i}_{k,m} = \frac{R^{i}_{k,m}}{(\lambda^{x},m) - \lambda_{i}} \quad k\geq 2\)</span></p>
+<p><strong>Remark:</strong> This is possible if <span class="arithmatex">\((\lambda^{x},m) - \lambda_{i} \neq 0\)</span>.</p>
+<h6 id="def-primary-external-resonances">Def: Primary (external) resonances<a class="headerlink" href="#def-primary-external-resonances" title="Permanent link">¶</a></h6>
+<p>The "couples <span class="arithmatex">\((m, i)\)</span>", <span class="arithmatex">\(i = d+1, \dots, n\)</span> such that <span class="arithmatex">\((\lambda^{x},m) - \lambda_{i} = 0\)</span> are called primary (external) resonances.</p>
+<h5 id="equations-components-i1-dots-d">Equations (components) <span class="arithmatex">\(i=1, \dots, d\)</span><a class="headerlink" href="#equations-components-i1-dots-d" title="Permanent link">¶</a></h5>
+<div class="arithmatex">\[\begin{align*}
+(\lambda^{x}, m)W_{k,m}^{i} - \lambda_{i}W^{i}_{k,m} + f^{i}_{k,m}&amp;= R^{i}_{k,m}\\
+[(\lambda^{x},m) - \lambda_{i}]W^{i}_{k,m} + f^{i}_{k,m} &amp;=  R^{i}_{k,m} \qquad \textrm{cohomolog equations}\end{align*}\]</div>
+<p>Now we can choose:
+- (A): <strong>Graph style</strong>: <span class="arithmatex">\(W^{i}_{k,m}=0\)</span>, <span class="arithmatex">\(f^{i}_{k,m} = R^{i}_{k,m}\)</span>
+- (B): <strong>Normal form style</strong>: <span class="arithmatex">\(f^{i}_{k,m}=0\)</span>, <span class="arithmatex">\(W^{i}_{k,m} = \frac{R^{i}_{k,m}}{(\lambda^{x},m) - \lambda_{i}}\)</span></p>
+<p><strong>Remark</strong>: THis is possible if <span class="arithmatex">\((\lambda^{x},m) - \lambda_{i} \neq 0\)</span></p>
+<h6 id="def-secondary-internal-resonances">Def: Secondary (internal) resonances<a class="headerlink" href="#def-secondary-internal-resonances" title="Permanent link">¶</a></h6>
+<p>The "couples <span class="arithmatex">\((m, i)\)</span>", <span class="arithmatex">\(i = 1, \dots, d\)</span> such that <span class="arithmatex">\((\lambda^{x},m) - \lambda_{i} = 0\)</span> are called secondary (internal) resonances.</p>
+<ul>
+<li>In case (A), we obtain:
+    <span class="arithmatex">\(<span class="arithmatex">\(W(s) = \begin{pmatrix}\vec{s} \\ 0\end{pmatrix} + \sum\limits_{k\geq2}\begin{pmatrix}W^{x}_{k}(s) \\ W^{y}_{k}(s)\end{pmatrix} = \begin{pmatrix}W^{x}(s) \\ W^{y}(s)\end{pmatrix} = \begin{pmatrix}s \\ W^{y}(s)\end{pmatrix}\)</span>\)</span> which is a graph (as in <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(f(x)\)</span>), and <span class="arithmatex">\(<span class="arithmatex">\(f(s)=\begin{pmatrix}\lambda_{1}s_{1} \\ \vdots \\ \lambda_{d}s_{d}\end{pmatrix} + \sum\limits_{k\geq2}f_{k}(s)\)</span>\)</span></li>
+<li>In case (b), we obtain:
+    <span class="arithmatex">(<span class="arithmatex">\(f(s) = \begin{pmatrix}\lambda_{1}s_{1} \\ \vdots  \\ \lambda_{d}s_{d}\end{pmatrix}\)</span>\)</span>
+    and <span class="arithmatex">(<span class="arithmatex">\(W(s) = \begin{pmatrix}\vec{s} \\ 0\end{pmatrix} + \sum\limits_{k\geq2}\begin{pmatrix}W^{x}_{k}(s) \\ W^{y}_{k}(s)\end{pmatrix} = \begin{pmatrix}W^{x}(s) \\ W^{y}(s)\end{pmatrix}\)</span>\)</span><blockquote>
+<p>At each stage, you just have to compute <span class="arithmatex">\(R\)</span></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="comments">Comments:<a class="headerlink" href="#comments" title="Permanent link">¶</a></h4>
+<h6 id="comment-1">Comment 1<a class="headerlink" href="#comment-1" title="Permanent link">¶</a></h6>
+<p>There are no primary resonances for an unstable or stable invariant manifold.</p>
+<p><em>Why?</em>
+Let's consider <span class="arithmatex">\(1\leq i \leq d\)</span>, <span class="arithmatex">\(d+1\leq j \leq n\)</span></p>
+<p>If we want to compute a <span class="arithmatex">\(d\)</span> unstable manifold, this means <span class="arithmatex">\(Re{(\lambda_{i})&gt;0}\)</span>, <span class="arithmatex">\(Re{(\lambda_{j})&lt;0}\)</span> (case 1):
+    <span class="arithmatex">\((\lambda^{x},m) - \lambda_{i} = m_{1}\lambda_{1}+\dots + m_{d}\lambda_{d} - \lambda_{j}\)</span>
+    Take the real part and we have:
+    <span class="arithmatex">\(<span class="arithmatex">\(m_{1}Re(\lambda_{1}) + \dots + m_{d}Re(\lambda_{d}) - Re(\lambda_{j}) \neq 0\)</span>\)</span>
+    because the first part is always positive (<span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(Re(\lambda_{i})\)</span>) are always positive and <span class="arithmatex">\(Re(\lambda_{j})\)</span> will always be negative or zero (since these correspond to the eigenvalues with negative equal part, the ones non-related to the unstable manifold).
+    The equivalent for stable manifolds is true.</p>
+<h6 id="comment-2">Comment 2<a class="headerlink" href="#comment-2" title="Permanent link">¶</a></h6>
+<p>In case of 1D unstable or stable manifolds, there are no secondary resonances: 
+    <span class="arithmatex">\(<span class="arithmatex">\((\lambda_{1}, m) - \lambda_{1}=(m-1)\lambda_{1}\neq 0\)</span>\)</span> and for <span class="arithmatex">\(m\geq 2\)</span>, so <span class="arithmatex">\(m-1\leq 0\)</span> and <span class="arithmatex">\(\lambda_{1}\neq 0\)</span>.</p>
+<blockquote>
+<p>Stable means expansion
+Unstable means compression
+Central means no expansion, no compression.</p>
+</blockquote>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h2>
+<h3 id="example-1-by-hand">Example 1 (by hand)<a class="headerlink" href="#example-1-by-hand" title="Permanent link">¶</a></h3>
+<p><em>Assignment</em>
+Consider the pendulum <span class="arithmatex">\(x'' + \sin{x} = 0\)</span> or equivalently <span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+x_1' &amp;= x_2\\
+x_2' &amp;= -\sin{x}
+\end{align*}\)</span>\)</span>
+and the equilibrium point <span class="arithmatex">\((\pi, 0)\)</span></p>
+<p><strong>Part 1</strong>: Compute, by hand, a parametrization of <span class="arithmatex">\(\mathfrak{W}^{u}\)</span> (the unstable 1d manifold) up to order 3 (included) following the steps just described using:
+    A) Graph style
+    B) Normal form style</p>
+<pre><code>![[2.2 Expansion of parametrizations of invariant manifolds (for flows) 2022-11-22 15.13.10.excalidraw]]
+</code></pre>
+<p>We will have <span class="arithmatex">\(<span class="arithmatex">\(DG(Z_{0}) = \begin{pmatrix}0 &amp; 1 \\ 1  &amp; 0\end{pmatrix}\)</span>\)</span> with eigenvalues <span class="arithmatex">\(\lambda_{1}= 1\)</span> and <span class="arithmatex">\(\lambda_{2}= -1\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(P=\begin{pmatrix}1 &amp; 1 \\ 1 &amp; -1\end{pmatrix}\)</span>\)</span></p>
+<p>Remember to do the final step!! <span class="arithmatex">\(W^{or var}(s) = Z_{0}+ PW(s)\)</span></p>
+<p><strong>Part 2</strong>: Consider the window <span class="arithmatex">\([0, 2\pi] \times [-2.5, 2.5]\)</span> and plot the phase portrait and on top the <span class="arithmatex">\(W^{s}\)</span>
+![[2.2 Expansion of parametrizations of invariant manifolds (for flows) 2022-11-22 15.20.51.excalidraw]]</p>
+<h3 id="example-2-the-lorenz-manifold">Example 2: The Lorenz manifold<a class="headerlink" href="#example-2-the-lorenz-manifold" title="Permanent link">¶</a></h3>
+<p><strong>Goal</strong>: To ocmpute an expansion for the parametrization of the stable manifold of the origin using the normal form style</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x_{1}' &amp;= \sigma(x_{2}-x_{1}) \\
+x_{2}' &amp;= \rho x_{1}-x_{2}-x_{1}x_3 \\
+x_{3}' &amp;= x_{1}x_{2}-\beta x_{3} \\
+\end{cases}\)</span>\)</span>
+with <span class="arithmatex">\(\sigma=10, \rho=28, \beta= \frac{8}{3}\)</span>.</p>
+<p><strong>Eq points</strong>:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+P_{0}=(0, 0, 0)\\
+P_{1,2} = (\pm \sqrt{\beta(\rho-1)}, \pm \sqrt{\beta(\rho-1)}, \rho-1)\\
+\end{align*}\)</span>\)</span>
+The eigenvalues are <span class="arithmatex">\(\lambda_{1}=-22.828\dots\)</span>, <span class="arithmatex">\(\lambda_{2}=-2.666\dots\)</span> and <span class="arithmatex">\(\lambda_{3}=11.828\dots\)</span>. This means we have a 1d ustable manifold <span class="arithmatex">\(\mathfrak{W}^{u}\)</span> and a 2d stable manifold <span class="arithmatex">\(\mathfrak{W}^{s}\)</span>, called the <strong>Lorenz Manifold</strong>.</p>
+<p><em>Order of the expansion?</em>
+In order to know at a given degree <span class="arithmatex">\(k\)</span> how good is the expansion, you can check with the invariance condition.</p>
+<p>Fix a <span class="arithmatex">\(k\)</span>: <span class="arithmatex">\(\mathfrak{W}^{s}\)</span> is a 2d manifold.
+Consider <span class="arithmatex">\(s_{\delta,\theta} = (\delta \cos{\theta}, \delta \sin{\theta})\)</span> with <span class="arithmatex">\(\delta\)</span> fixed and <span class="arithmatex">\(\theta \in [0, 2\pi)\)</span> (a circle of initial conditions).</p>
+<p>Since we are using the normal form style,
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+s_{1}' &amp;= \lambda_{1}s_{1}\qquad \Rightarrow \qquad s_{1}(t) = s_{10}e^{\lambda_{1}t} \\
+s_{2}' &amp;= \lambda_{2}s_{2}\qquad \Rightarrow \qquad s_{2}(t) = s_{20}e^{\lambda_{2}t} \\
+\end{cases}\)</span>\)</span>
+and <span class="arithmatex">\(\phi_{t}(s_{10}e^{\lambda_{1}t}, s_{20}e^{\lambda_{2}t})\)</span></p>
+<ul>
+<li>Take an <span class="arithmatex">\(s=s_{0}=s_{\delta, \theta}\)</span> for <span class="arithmatex">\(\theta\)</span> given. Compute <span class="arithmatex">\(\phi_t(s)\)</span> for some <span class="arithmatex">\(t\)</span>.</li>
+<li><span class="arithmatex">\(W(s) = W(s_{0})\)</span> and compute <span class="arithmatex">\(\Phi_{t}(W(s))\)</span> for some <span class="arithmatex">\(t\)</span></li>
+<li>We call <span class="arithmatex">\(e_{0}(t, s_{\delta, \theta}) = ||W(s(t)) - Z(t)||\)</span></li>
+<li>You compute the error for several <span class="arithmatex">\(\theta\)</span> and you compute <span class="arithmatex">\(\epsilon(\delta) = \max_{\theta \in [0, 2\pi]}{e_{0}(t, s_{\delta, \theta})}\)</span></li>
+</ul>
+<p>For a given <span class="arithmatex">\(k\)</span>, the smaller <span class="arithmatex">\(\delta\)</span> is, the smaller the error is. </p>
+<p>Error depends on <span class="arithmatex">\(t\)</span>. Here they take <span class="arithmatex">\(t=0.3\)</span>. The idea is that from <span class="arithmatex">\(s_{0}\)</span> you go to approx <span class="arithmatex">\(1000s_0\)</span></p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 2.1. The 3 body problem" class="md-footer__link md-footer__link--prev" href="../2.1.%20The%203%20body%20problem/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              2.1. The 3 body problem
+            </div>
+</div>
+</a>
+<a aria-label="Next: Assignment 1" class="md-footer__link md-footer__link--next" href="../20220928%20NMDS%20Assignment%201/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Assignment 1
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

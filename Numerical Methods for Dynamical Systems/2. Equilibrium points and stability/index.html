@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Chapter 2: Equilibrium points and stability - Lecture notes - MAMME</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#chapter-2-equilibrium-points-and-stability">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Lecture notes - MAMME" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lecture notes - MAMME
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Chapter 2: Equilibrium points and stability
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="bluegrey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lecture notes - MAMME" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Lecture notes - MAMME
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Lecture Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Mathematical models in biology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mathematical models in biology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Mathematical models in biology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/">
+        Mathematicals Models in Biology - An introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Evolutionary%20models%20lessons/">
+        Evolutionary models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Genomics/">
+        Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Introduction%20class%20%20to%20MMiB/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Outline%20-%20Mathematical%20models%20in%20Biology/">
+        Mathematical models in Biology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetic%20reconstruction%20lesson/">
+        Phylogenetic reconstruction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Phylogenetics%20and%20Genomics%20-%20Outline/">
+        Phylogenetics and Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Population%20dynamics%20lecture/">
+        Population dynamics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Evolutionary%20models/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Phylogenetic%20Reconstruction/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Mathematical%20models%20in%20biology/Projects%20in%20Population%20Dynamics/">
+        Projects
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Numerical Methods for Dynamical Systems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Numerical Methods for Dynamical Systems" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Numerical Methods for Dynamical Systems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00.%20Introduction%20to%20the%20class%20to%20NMDS/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.1.%20Preliminaries%20-%20Continuous%20dynamical%20systems/">
+        Preliminaries: Continuous dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.2.%20Preliminaries%20-%20Discrete%20dynamical%20systems/">
+        Discrete dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.3.%20Variational%20equations/">
+        Variational equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1.4.%20Poincar%C3%A9%20map/">
+        Poincaré map
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Chapter 2: Equilibrium points and stability
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Chapter 2: Equilibrium points and stability
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-stability">
+    Def: Stability
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-equilibrium-point">
+    Def: Equilibrium point
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-of-an-equilibrium-point">
+    Stability of an equilibrium point
+  </a>
+<nav aria-label="Stability of an equilibrium point" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-characteristic-exponents">
+    Def: Characteristic exponents
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-hyperbolic-matrix-or-equilibrium-points">
+    Def: Hyperbolic matrix or equilibrium points
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-elliptic-matrix-or-equilibrium-points">
+    Def: Elliptic matrix or equilibrium points
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-stability-of-equilibrim-points-in-an-autonomous-linear-system-of-ode">
+    Theorem: Stability of equilibrim points in an autonomous linear system of ODE
+  </a>
+<nav aria-label="Theorem: Stability of equilibrim points in an autonomous linear system of ODE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples">
+    Examples
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hyperbolic-points-example">
+    Hyperbolic points example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elliptic-points-example">
+    Elliptic points example
+  </a>
+<nav aria-label="Elliptic points example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lemma">
+    Lemma
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-hartman">
+    Theorem: Hartman
+  </a>
+<nav aria-label="Theorem: Hartman" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+    Example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-stability-of-equilibrium-points-for-a-nonlinear-system-of-ode">
+    Theorem: Stability of equilibrium points for a nonlinear system of ODE
+  </a>
+<nav aria-label="Theorem: Stability of equilibrium points for a nonlinear system of ODE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_1">
+    Examples
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#invariant-manifolds">
+    Invariant manifolds
+  </a>
+<nav aria-label="Invariant manifolds" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-stable-manifold">
+    Local stable manifold
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-unstable-manifold">
+    Local unstable manifold
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-local-stableunstable-manifolds-for-flows">
+    Theorem: Local stable/unstable manifolds for flows
+  </a>
+<nav aria-label="Theorem: Local stable/unstable manifolds for flows" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-stableunstable-invariant-manifolds">
+    Global stable/unstable invariant manifolds
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-homoclinic-orbit">
+    Def: Homoclinic orbit
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-heteroclinic-orbit">
+    Def: Heteroclinic orbit
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation">
+    Numerical computation
+  </a>
+<nav aria-label="Numerical computation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-1-dim-manifold">
+    Example 1: 1 dim manifold
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.1.%20The%203%20body%20problem/">
+        2.1. The 3 body problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.2%20Expansion%20of%20parametrizations%20of%20invariant%20manifolds%20%28for%20flows%29/">
+        2.2 Expansion of parametrizations of invariant manifolds (for flows)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20220928%20NMDS%20Assignment%201/">
+        Assignment 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221005%20NMDS%20Assignment%202/">
+        Assignment 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20221011%20NMDS%20Assignment%203/">
+        Assignment 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Algebraic%20group/">
+        Algebraic group
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Assignment%204/">
+        Assignment 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../First%20integral/">
+        First integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Jordan%20matrix/">
+        Jordan matrix
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Outline%20-%20Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Outline   Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Separatrix/">
+        Separatrix
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-stability">
+    Def: Stability
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-equilibrium-point">
+    Def: Equilibrium point
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-of-an-equilibrium-point">
+    Stability of an equilibrium point
+  </a>
+<nav aria-label="Stability of an equilibrium point" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-characteristic-exponents">
+    Def: Characteristic exponents
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-hyperbolic-matrix-or-equilibrium-points">
+    Def: Hyperbolic matrix or equilibrium points
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-elliptic-matrix-or-equilibrium-points">
+    Def: Elliptic matrix or equilibrium points
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-stability-of-equilibrim-points-in-an-autonomous-linear-system-of-ode">
+    Theorem: Stability of equilibrim points in an autonomous linear system of ODE
+  </a>
+<nav aria-label="Theorem: Stability of equilibrim points in an autonomous linear system of ODE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples">
+    Examples
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hyperbolic-points-example">
+    Hyperbolic points example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elliptic-points-example">
+    Elliptic points example
+  </a>
+<nav aria-label="Elliptic points example" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lemma">
+    Lemma
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-hartman">
+    Theorem: Hartman
+  </a>
+<nav aria-label="Theorem: Hartman" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+    Example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-stability-of-equilibrium-points-for-a-nonlinear-system-of-ode">
+    Theorem: Stability of equilibrium points for a nonlinear system of ODE
+  </a>
+<nav aria-label="Theorem: Stability of equilibrium points for a nonlinear system of ODE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples_1">
+    Examples
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#invariant-manifolds">
+    Invariant manifolds
+  </a>
+<nav aria-label="Invariant manifolds" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-stable-manifold">
+    Local stable manifold
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-unstable-manifold">
+    Local unstable manifold
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-local-stableunstable-manifolds-for-flows">
+    Theorem: Local stable/unstable manifolds for flows
+  </a>
+<nav aria-label="Theorem: Local stable/unstable manifolds for flows" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#global-stableunstable-invariant-manifolds">
+    Global stable/unstable invariant manifolds
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-homoclinic-orbit">
+    Def: Homoclinic orbit
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#def-heteroclinic-orbit">
+    Def: Heteroclinic orbit
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numerical-computation">
+    Numerical computation
+  </a>
+<nav aria-label="Numerical computation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-1-1-dim-manifold">
+    Example 1: 1 dim manifold
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="chapter-2-equilibrium-points-and-stability">Chapter 2: Equilibrium points and stability<a class="headerlink" href="#chapter-2-equilibrium-points-and-stability" title="Permanent link">¶</a></h1>
+<h6 id="def-stability">Def: Stability<a class="headerlink" href="#def-stability" title="Permanent link">¶</a></h6>
+<p>We say that <strong>a solution</strong> <span class="arithmatex">\(x(t; t_{0}, x_{0})\)</span> of <span class="arithmatex">\(x' = f(t, x)\)</span>, <span class="arithmatex">\(x\in U\subset \mathbb{R}^{n}\)</span>, is stable if <span class="arithmatex">\(\forall \epsilon  &gt; 0 \quad \exists \delta(\epsilon, t_0)&gt;0\)</span>,<br/>
+such that for any solution <span class="arithmatex">\(y(t; t_{0}, x_{1})\)</span> with <span class="arithmatex">\(||x_{1}- x_{0}||&lt;\delta\)</span> is defined for <span class="arithmatex">\([t_{0}, \infty)\)</span> and <span class="arithmatex">\(||x(t; t_{0}, x_{0}) - y(t; t_{0,}x_{1})||&lt;\epsilon\)</span></p>
+<blockquote>
+<p>Everything should be in vector notation</p>
+</blockquote>
+<p>![[ex_stable_solution]]
+<em>You can draw a tube around an specific solution <span class="arithmatex">\(x(t; t_{0}, x_{0})\)</span> so that any initial condition inside the tube, its solution remains inside this defined tube.</em></p>
+<p>If, moreover, <span class="arithmatex">\(\lim_{t \to \infty }{||x(t; t_{0}, x_{0} - y(t; t_{0}, x_{1})||} = 0\)</span>, we say that the solution <span class="arithmatex">\(x(t; t_{0}, x_{0})\)</span> is asymptotically stable.</p>
+<p>The solution <span class="arithmatex">\(x(t; t_{0}, x_{0})\)</span> is <strong>unstable</strong> if it is not stable.</p>
+<h6 id="def-equilibrium-point">Def: Equilibrium point<a class="headerlink" href="#def-equilibrium-point" title="Permanent link">¶</a></h6>
+<p><span class="arithmatex">\(x = p\)</span> for <span class="arithmatex">\(x'=f(x)\)</span>, then <span class="arithmatex">\(f(p)= 0\)</span>, that is <span class="arithmatex">\(x(t) = p\)</span> is a solution for all time.</p>
+<blockquote>
+<p><strong>Numerical computation of equilibrium points</strong>
+Given the system of ODEs, we must apply some method to solve <span class="arithmatex">\(f(x) = 0\)</span>, using Netwon or whatever.</p>
+</blockquote>
+<h3 id="stability-of-an-equilibrium-point">Stability of an equilibrium point<a class="headerlink" href="#stability-of-an-equilibrium-point" title="Permanent link">¶</a></h3>
+<p>For <span class="arithmatex">\(p\)</span> an equilibrim point of <span class="arithmatex">\(x' = f(x)\)</span>,
+consider an initial condition <span class="arithmatex">\(p+\delta\)</span>, <span class="arithmatex">\(\delta\)</span> "small", the corresponding solution is 
+$$\begin{align<em>}
+\phi_{t}(p + \delta) &amp;= \phi_{t}(p)+ D\phi_{t}(p)\delta + O(\delta^{2})\
+&amp; \qquad p 
+&amp;\end{align</em>} 
+$$
+<span class="arithmatex">\(D\phi_t(p)\)</span> is the solution of the 1st order variational equation:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\frac{d}{dt}D\phi_{t}(p) = Df(\phi_{t}(p))D\phi_{t}(p) \\
+(D\phi_{t}(p))|_{t=0} = I
+\end{cases}\)</span>\)</span>
+where <span class="arithmatex">\(Df(\phi_{t}(p))\)</span> with <span class="arithmatex">\(\phi_{t}(p) = p\)</span> is a constant matrix.</p>
+<p>The solution is <span class="arithmatex">\(D\phi_{t}(p) = e^{At}\)</span>, so <span class="arithmatex">\(\phi_{t}(p+\delta) = p + e^{At}\delta + O(\delta^2)\)</span>.</p>
+<p>The eigenvalues of <span class="arithmatex">\(A\)</span> "will decide" the stability of <span class="arithmatex">\(p\)</span></p>
+<h6 id="def-characteristic-exponents">Def: Characteristic exponents<a class="headerlink" href="#def-characteristic-exponents" title="Permanent link">¶</a></h6>
+<p>The eigenvalues of <span class="arithmatex">\(A = Df(p)\)</span> are called <strong>characteristic exponents</strong></p>
+<h6 id="def-hyperbolic-matrix-or-equilibrium-points">Def: Hyperbolic matrix or equilibrium points<a class="headerlink" href="#def-hyperbolic-matrix-or-equilibrium-points" title="Permanent link">¶</a></h6>
+<p>If there is <strong>no</strong> eigenvalue with zero real part, then the matrix <span class="arithmatex">\(A\)</span> is called <strong>hyperbolic</strong> or the equilibrim point is called <strong>hyperbolic</strong></p>
+<h6 id="def-elliptic-matrix-or-equilibrium-points">Def: Elliptic matrix or equilibrium points<a class="headerlink" href="#def-elliptic-matrix-or-equilibrium-points" title="Permanent link">¶</a></h6>
+<p>If all eigenvalues are purely imaginary and the associated <a href="../Jordan%20matrix/">Jordan matrix</a> is diagonal, then <span class="arithmatex">\(A\)</span> or <span class="arithmatex">\(p\)</span> is called <strong>elliptic</strong>.</p>
+<h3 id="theorem-stability-of-equilibrim-points-in-an-autonomous-linear-system-of-ode">Theorem: Stability of equilibrim points in an autonomous linear system of ODE<a class="headerlink" href="#theorem-stability-of-equilibrim-points-in-an-autonomous-linear-system-of-ode" title="Permanent link">¶</a></h3>
+<p>Consider <span class="arithmatex">\(<span class="arithmatex">\(x' = A(x-p)\)</span>\)</span><span class="arithmatex">\(A\)</span> a matrix (<span class="arithmatex">\(n\times n\)</span>), <span class="arithmatex">\(x = p\)</span> is an equilibrium point.
+Taking <span class="arithmatex">\(y=x-p\)</span>, the system becomes <span class="arithmatex">\(y' = Ay\)</span>.</p>
+<ul>
+<li>(i) If all the eigenvalues of <span class="arithmatex">\(A\)</span> satisfy that <span class="arithmatex">\(Re(\lambda)&lt;0\)</span>, then <span class="arithmatex">\(p\)</span> is <strong>asymptotically stable</strong>.</li>
+<li>(ii) If there exists eigenvalues with <span class="arithmatex">\(Re(\lambda) = 0\)</span> and they are semisimple (that is that the corresponding Jordan block is diagonal) and the remaining eigenvalues satisfy tht <span class="arithmatex">\(Re(\lambda) &lt; 0\)</span>, then <span class="arithmatex">\(p\)</span> is <strong>stable</strong> (but not asymptotically stable)</li>
+<li>(iii) In any other situation, <span class="arithmatex">\(p\)</span> is <strong>unstable</strong></li>
+</ul>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h4>
+<p><span class="arithmatex">\(n = 2\)</span>. <em>Exercise</em>: There are exactly 14 different phase portratis</p>
+<h4 id="hyperbolic-points-example">Hyperbolic points example<a class="headerlink" href="#hyperbolic-points-example" title="Permanent link">¶</a></h4>
+<p>Assume <span class="arithmatex">\(x' = A(x-p)\)</span> where the eigenvalues of <span class="arithmatex">\(A\)</span> are <span class="arithmatex">\(\alpha &gt; 0\)</span> (<span class="arithmatex">\(\vec{v}^+\)</span>) and <span class="arithmatex">\(\beta &gt; 0\)</span> (<span class="arithmatex">\(\vec{v}^-\)</span>)</p>
+<p>We have <span class="arithmatex">\(p\)</span> with the two eigenvectors. <span class="arithmatex">\(\vec{v}^+\)</span> defines 2 branches, wich corresponds to the invariant unstable 1d manifold (<span class="arithmatex">\(W^{u_{1}+}(p)\)</span> and <span class="arithmatex">\(W^{u_{1}-}(p)\)</span>). If we take a point in the semiline <span class="arithmatex">\(W^{u_{1}+}(p)\)</span>, and we integrate backwards in time, we will tend to the equilibrium point.
+For <span class="arithmatex">\(\vec{v}^{-}\)</span>, we have an invariant stable 1d manifold with two branches <span class="arithmatex">\(W^{s+}(p)\)</span> and <span class="arithmatex">\(W^{s-}(p)\)</span>
+In total: 2 manifolds, 4 branches.
+ ![[linear_manifolds]]
+These are <strong>hyperbolic equilibrium points</strong></p>
+<h4 id="elliptic-points-example">Elliptic points example<a class="headerlink" href="#elliptic-points-example" title="Permanent link">¶</a></h4>
+<p>Assume <span class="arithmatex">\(x' = A(x-p)\)</span> where the eigenvalues of <span class="arithmatex">\(A\)</span> are purely imaginary <span class="arithmatex">\(\pm i\omega\)</span> and eigenvectors <span class="arithmatex">\(\vec{v}^{\pm} = \vec{r} \pm i\vec{s}\)</span></p>
+<h6 id="lemma">Lemma<a class="headerlink" href="#lemma" title="Permanent link">¶</a></h6>
+<p>The solution of <span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\vec{x}' &amp;= A \vec{x}  \\
+\vec{x}(0) &amp;= \vec{x}_{0} = a_{0}\vec{r} + b_{0}\vec{s}
+\end{cases}\)</span>\)</span>
+is <span class="arithmatex">\(\vec{x}(t) = a_{0}\vec{x}_{1}(t) + b_{0}\vec{x}_{2}(t)\)</span>, with <span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\vec{x}_{1}(t) = \vec{r} \cos{\omega t} - \vec{s} \sin{\omega t} \\
+\vec{x}_{2}(t) = \vec{r} \sin{\omega t} + \vec{s} \cos{\omega t}
+\end{cases}\)</span>\)</span>
+The period of this solutions will be <span class="arithmatex">\(\frac{2\pi}{w}\)</span></p>
+<p>If I take another system similar to this one, it makes sense that if you have eigenvalues like the first case, it seems reasonable that the eigenvalues will be similar. But for the second case, when you perturbe it a bit, you may get another thing. This means that the case 1 is more robust.</p>
+<p>The hyperbolic euqilibrium points are very useful in the following sense. </p>
+<h3 id="theorem-hartman">Theorem: Hartman<a class="headerlink" href="#theorem-hartman" title="Permanent link">¶</a></h3>
+<p>Assume <span class="arithmatex">\(x' = f(x)\)</span>, <span class="arithmatex">\(p\)</span> is a hyperbolic equilibrium point and <span class="arithmatex">\(f \subset \mathcal{C}^k\)</span>. Then the local flow around <span class="arithmatex">\(p\)</span> is "equivalent" to the linear flow <span class="arithmatex">\(x' = A(x-p)\)</span>, <span class="arithmatex">\(A = Df(p)\)</span> around <span class="arithmatex">\(x = p\)</span>.</p>
+<h6 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h6>
+<p>The spectrum of A <span class="arithmatex">\(spec A = \{\lambda, \beta\}\)</span> (spectrum means the set of eigenvalues), with <span class="arithmatex">\(\lambda&gt;0\)</span>, <span class="arithmatex">\(\beta &lt; 0\)</span>. From a dynamical point of view, it's equivalent to have invariant lines ore invariant curves.</p>
+<blockquote>
+<p>This will be key to compute the real curves.</p>
+</blockquote>
+<h5 id="theorem-stability-of-equilibrium-points-for-a-nonlinear-system-of-ode">Theorem: Stability of equilibrium points for a nonlinear system of ODE<a class="headerlink" href="#theorem-stability-of-equilibrium-points-for-a-nonlinear-system-of-ode" title="Permanent link">¶</a></h5>
+<p><span class="arithmatex">\(x' = f(x)\)</span>, <span class="arithmatex">\(x \in U \subset \mathbf{R}^n\)</span>, <span class="arithmatex">\(f\subset \mathcal{C}^k(U)\)</span>,  and an equilibrium point, <span class="arithmatex">\(f(p) = 0\)</span> and <span class="arithmatex">\(A = Df(p)\)</span></p>
+<ul>
+<li>(i) If all the eigenvalues of <span class="arithmatex">\(A\)</span> satisfy <span class="arithmatex">\(Re(\lambda)&lt;0\)</span>, then <span class="arithmatex">\(p\)</span> is <strong>asympotatically stable</strong> for the nonlinear system.</li>
+<li>(ii) If there exists an eigenvalue such that <span class="arithmatex">\(Re(\lambda) &gt; 0\)</span>, then <span class="arithmatex">\(p\)</span> is <strong>unstable</strong> for the nonlinear system.
+For the other possibilities we don't know, we cannot conclude.</li>
+</ul>
+<hr/>
+<p><em>Date: 11-10-2022</em></p>
+<h6 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">¶</a></h6>
+<p><strong>Example 1</strong>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x' &amp;= -y + ax(x^{2}+y^2) \\ \\
+y' &amp;= x + ay(x^{2}+ y^{2})
+\end{cases}\)</span>\)</span>
+For <span class="arithmatex">\(p=(0, 0)\)</span> and equilibrium point,</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(A = Df(x, y)|_{(0,0)} = \begin{pmatrix}0 &amp; -1 \\ 1 &amp; 0\end{pmatrix}\)</span>\)</span>
+The eigenvalues are:
+    <span class="arithmatex">\(\det{(A - \lambda \mathbb{I})} = \lambda^{2}+1 \rightarrow \lambda = \pm i\)</span></p>
+<p>We cannot apply the theorem for this case. For the <strong>linearized system</strong>, <span class="arithmatex">\((0, 0)\)</span> is a center.</p>
+<p>For the nonlinear system, we will see that he orbits have the following shape depending on <span class="arithmatex">\(a\)</span> :
+- For <span class="arithmatex">\(a&lt;0\)</span>, we have a stable point and the orbits are an inward spiral (towards the center).
+- For <span class="arithmatex">\(a=0\)</span>, we have a center.
+- For <span class="arithmatex">\(a&gt;0\)</span>, we have an unstable point and the orbits are an outward spiral (from the center towards the outside).![[2. Equilibrium points and stability 2022-11-13 17.05.42.excalidraw]]</p>
+<p><strong>Example 2: The pendulum</strong> (Assignment)
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+\frac{d\theta}{dt} &amp;= \omega  \\
+\frac{d\omega}{dt} &amp;= - \frac{g}{l}\sin\theta
+\end{cases}\)</span>\)</span>
+1. Equilibrium points
+2. Stability of the equilibrium points taking into account the linearized system. At some points (e.g. <span class="arithmatex">\((\pi, 0)\)</span> we can apply the theorem and at others like <span class="arithmatex">\((0, 0)\)</span> we cannot)
+3. Plot the phase portrait (orbits and direction)
+    <em>Hint</em>: Use the first integral: <span class="arithmatex">\(E = \frac{ml^{2}\omega^{2}}{2} + mgl(1-\cos{\theta})\)</span>
+4. Energy level for the heteroclinic orbits (the ones that connect the unstable points in <span class="arithmatex">\((-\pi, 0)\)</span> and <span class="arithmatex">\((\pi, 0)\)</span>)</p>
+<p><strong>Example 3: Lotka-Volterra</strong>
+Model of competition between two species:</p>
+<div class="arithmatex">\[\begin{cases}
+x' &amp;= x(3-x-2y) \\
+y' &amp;= y(2-x-y) 
+\end{cases}$$
+$$DF = \begin{pmatrix}3-2x-2y &amp; -2x \\-y  &amp; 2-x-2y\end{pmatrix}\]</div>
+<p>with
+- <span class="arithmatex">\(x(t)\)</span>: population of rabbits
+- <span class="arithmatex">\(y(t)\)</span>: population of sheep
+(so <span class="arithmatex">\(x, y \geq 0\)</span>)</p>
+<ol>
+<li>Prove that the axes are invariant lines</li>
+<li>Compute the equilibrium points</li>
+<li>Classify them according to the linearized system (each point has a name, e.g. saddle, center, etc.)</li>
+<li>Stability of the equilibrium points (from the linearized system)</li>
+<li>Plot the local phase space around each equilibrium point<blockquote>
+<p>So far, this can be done by hand</p>
+</blockquote>
+</li>
+<li>Plot the global phase space in <span class="arithmatex">\(x, y \geq 0\)</span></li>
+<li>Are there homoclinic or heteroclinic orbits. </li>
+<li>In particular, compute the heteroclinic orbit from <span class="arithmatex">\((1, 1)\)</span> to <span class="arithmatex">\((0, 0)\)</span> (we can do it with what's explained below)</li>
+<li>Describe shortly a biological interpretation of the results</li>
+</ol>
+<p>The 9-points can be done by hand, but specially for 8 is better with computer. </p>
+<h2 id="invariant-manifolds">Invariant manifolds<a class="headerlink" href="#invariant-manifolds" title="Permanent link">¶</a></h2>
+<blockquote>
+<p>It will play a key role from now to the end of this master's course. Ref: Meyer-Hall book</p>
+</blockquote>
+<p>Assume we have this non-linear system of ODE's:
+    <span class="arithmatex">\(x'=f(x)\)</span>, <span class="arithmatex">\(x\in U\subset \mathbf{R}^{n}\)</span>, <span class="arithmatex">\(f\)</span> smooth, <span class="arithmatex">\(p\)</span> is a <em>hyperbolic equilibrium point</em> (the Jacobian matrix at this equilibrium point has no eigenvalue with real part equal to 0).</p>
+<h6 id="local-stable-manifold">Local stable manifold<a class="headerlink" href="#local-stable-manifold" title="Permanent link">¶</a></h6>
+<p>Let <span class="arithmatex">\(\epsilon &gt; 0\)</span> be given, then <strong>the local stable manifold</strong> is
+<span class="arithmatex">\(<span class="arithmatex">\(W^{s}_{loc}(\varepsilon) = \{x\in \mathbb{R}^{n} \quad ||\phi(t, x) - p|| &lt; \varepsilon, \textrm{ for } t\geq 0\}\)</span>\)</span></p>
+<h6 id="local-unstable-manifold">Local unstable manifold<a class="headerlink" href="#local-unstable-manifold" title="Permanent link">¶</a></h6>
+<p>Let <span class="arithmatex">\(\epsilon &gt; 0\)</span> be given, then <strong>the local unstable manifold</strong> is
+<span class="arithmatex">\(<span class="arithmatex">\(W^{u}_{loc}(\varepsilon) = \{x\in \mathbb{R}^{n} \quad ||\phi(t, x) - p|| &lt; \varepsilon, \textrm{ for } t\leq 0\}\)</span>\)</span></p>
+<p>the set of points in <span class="arithmatex">\(R^{n}\)</span> such that backwards in time was inside a ball surrounding <span class="arithmatex">\(p\)</span></p>
+<h3 id="theorem-local-stableunstable-manifolds-for-flows">Theorem: Local stable/unstable manifolds for flows<a class="headerlink" href="#theorem-local-stableunstable-manifolds-for-flows" title="Permanent link">¶</a></h3>
+<p>Let <span class="arithmatex">\(x' = f(x)\)</span>, <span class="arithmatex">\(p\)</span> and equilibrium point, <span class="arithmatex">\(f\)</span> smooth and assume <span class="arithmatex">\(A = Df(p)\)</span>.</p>
+<p>Assume <span class="arithmatex">\(A\)</span> has 
+    - <span class="arithmatex">\(d\)</span> eigenvalues with negative real parts (strictly negative)<br/>
+    - <span class="arithmatex">\(k\)</span> eigenvalues with positive real part
+and <span class="arithmatex">\(E^{s}\)</span>, <span class="arithmatex">\(E^{u}\)</span> are the corresponding linear subspaces</p>
+<blockquote>
+<p>It could have eigenvalues with real part equal to 0</p>
+</blockquote>
+<p>Then for <span class="arithmatex">\(\varepsilon &gt; 0\)</span> small enough, <span class="arithmatex">\(W^{s}_{loc} (\varepsilon)\)</span>, <span class="arithmatex">\(W^{u}_{loc} (\varepsilon)\)</span> are smooth manifolds of dimension <span class="arithmatex">\(d\)</span>, <span class="arithmatex">\(k\)</span> and tangent to <span class="arithmatex">\(E^{s}\)</span> and <span class="arithmatex">\(E^{u}\)</span>, respectively.</p>
+<p>If <span class="arithmatex">\(x\in W^{s}_{loc}(\varepsilon)\)</span>, then <span class="arithmatex">\(\phi(t, x) \xrightarrow[t \to +\infty]{}p\)</span>
+If <span class="arithmatex">\(x\in W^{u}_{loc}(\varepsilon)\)</span>, then <span class="arithmatex">\(\phi(t, x) \xrightarrow[t \to -\infty]{}p\)</span></p>
+<h6 id="global-stableunstable-invariant-manifolds">Global stable/unstable invariant manifolds<a class="headerlink" href="#global-stableunstable-invariant-manifolds" title="Permanent link">¶</a></h6>
+<p>The global stable/unstable invariant manifolds are given by
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align}
+W^{s}(p) &amp;= \{x\in \mathbb{R}^{n} \quad \phi(t, x) \to p \quad \textrm{as } t\to +\infty \} \\
+W^{u}(p) &amp;= \{x\in \mathbb{R}^{n} \quad \phi(t, x) \to p \quad \textrm{as } t\to -\infty \}
+\end{align}\)</span>\)</span>
+<strong>How do we do it numerically?</strong> 
+- For the stable manifold, we take the local stable manifold and for each point we integrate it backward intime
+- For the unstable manifold, we take the local unstable manifold and for each point we integrate it forward intime</p>
+<h5 id="def-homoclinic-orbit">Def: Homoclinic orbit<a class="headerlink" href="#def-homoclinic-orbit" title="Permanent link">¶</a></h5>
+<p>Given <span class="arithmatex">\(p\)</span> an equilibrim point, a homoclinic orbit of <span class="arithmatex">\(p\)</span> is an orbit <span class="arithmatex">\(\phi(t, x)\)</span> such that <span class="arithmatex">\(<span class="arithmatex">\(lim_{t\to \pm \infty} \phi(t, x) = p\)</span>\)</span>
+or equivalently, <span class="arithmatex">\(\phi(t, x) \in W^{s}(p) \cap W^{u}(p)\)</span>.</p>
+<h5 id="def-heteroclinic-orbit">Def: Heteroclinic orbit<a class="headerlink" href="#def-heteroclinic-orbit" title="Permanent link">¶</a></h5>
+<p>Given <span class="arithmatex">\(p\)</span>, <span class="arithmatex">\(q\)</span> two equilibrim points, a heteroclinic orbit from <span class="arithmatex">\(p\)</span> to <span class="arithmatex">\(q\)</span> is an orbit <span class="arithmatex">\(\phi(t, x)\)</span> such that <span class="arithmatex">\(<span class="arithmatex">\(lim_{t\to + \infty} \phi(t, x) = p \qquad lim_{t\to - \infty} \phi(t, x) = q\)</span>\)</span>
+or equivalently, <span class="arithmatex">\(\phi(t, x) \in W^{u}(p) \cap W^{s}(q)\)</span>.</p>
+<h3 id="numerical-computation">Numerical computation<a class="headerlink" href="#numerical-computation" title="Permanent link">¶</a></h3>
+<p><strong>Question</strong>: <em>How do we proceed to compute numerically <span class="arithmatex">\(W^{s, u}(p)\)</span> ?</em></p>
+<h6 id="example-1-1-dim-manifold">Example 1: 1 dim manifold<a class="headerlink" href="#example-1-1-dim-manifold" title="Permanent link">¶</a></h6>
+<p>Given <span class="arithmatex">\(x' = f(x), \; x\in U \subset \mathbb{R}^{n}\)</span>, <span class="arithmatex">\(p\)</span> an equilibrium point s.t.</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(A = Df(p) \textrm{ has } \begin{cases}
+\lambda^{+}&gt; 0, \, v^{+} \textrm{a unitary eigenvector} \\
+\\ \\
+\lambda^{-}&lt; 0, \, v^{-} \textrm{a unitary eigenvector}
+\end{cases}\)</span>\)</span>
+<strong>Unstable manifold</strong>
+We know that the eigenvector of the positive eigenvalue is tangent to the unstable manifold. We will consider two branches:
+1. For <span class="arithmatex">\(W^{u, +}(p)\)</span>: 
+    1. Take initial condition <span class="arithmatex">\(q = p+s\vec{v}^{+}\)</span> (s small)
+    2. Integrate <em>forward</em> in time
+    3. Check for a specific poincaré map
+    4. Repeat with different <span class="arithmatex">\(s\)</span> (so <span class="arithmatex">\(s=1e-6, 1e-4, 1e-7\)</span>) and check that the computation is robust (this is a possible way to check)
+For <span class="arithmatex">\(W^{u, -}(p)\)</span>: 
+    1. Take initial condition <span class="arithmatex">\(q = p-s\vec{v}^{+}\)</span> (s small)
+    2.  Same as before...</p>
+<p><strong>Stable manifold</strong>
+Same as before, we consider the two branches
+1. For <span class="arithmatex">\(W^{s, +}(p)\)</span>: 
+    1. Take initial condition <span class="arithmatex">\(q = p+s\vec{v}^{-}\)</span> (s small)
+    2. Integrate <em>backwards</em> in time
+    3. Check robustness
+For <span class="arithmatex">\(W^{u, +}(p)\)</span>: 
+    1. Take initial condition <span class="arithmatex">\(q = p-s\vec{v}^{-}\)</span> (s small)
+    2.  Same as before...</p>
+<hr/>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Poincaré map" class="md-footer__link md-footer__link--prev" href="../1.4.%20Poincar%C3%A9%20map/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Poincaré map
+            </div>
+</div>
+</a>
+<a aria-label="Next: 2.1. The 3 body problem" class="md-footer__link md-footer__link--next" href="../2.1.%20The%203%20body%20problem/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              2.1. The 3 body problem
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

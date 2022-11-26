@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Population dynamics - Lecture notes - MAMME</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#population-dynamics">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Lecture notes - MAMME" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lecture notes - MAMME
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Population dynamics
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="bluegrey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lecture notes - MAMME" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Lecture notes - MAMME
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Lecture Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Mathematical models in biology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mathematical models in biology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Mathematical models in biology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/">
+        Mathematicals Models in Biology - An introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Evolutionary%20models%20lessons/">
+        Evolutionary models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Genomics/">
+        Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Introduction%20class%20%20to%20MMiB/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Outline%20-%20Mathematical%20models%20in%20Biology/">
+        Mathematical models in Biology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Phylogenetic%20reconstruction%20lesson/">
+        Phylogenetic reconstruction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Phylogenetics%20and%20Genomics%20-%20Outline/">
+        Phylogenetics and Genomics
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Population dynamics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Population dynamics
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#one-dimensional-models-in-ecology">
+    One dimensional models in ecology:
+  </a>
+<nav aria-label="One dimensional models in ecology:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fibonacci-sequence">
+    Fibonacci sequence
+  </a>
+<nav aria-label="Fibonacci sequence" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model">
+    Model
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#malthusian-growth">
+    Malthusian growth
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-model">
+    Logistic model
+  </a>
+<nav aria-label="Logistic model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#simple-analysis">
+    Simple analysis
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-model-with-predator">
+    Logistic model with predator
+  </a>
+<nav aria-label="Logistic model with predator" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-a-model-for-spruce-budworm">
+    Example: a model for Spruce Budworm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model_1">
+    Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adimensionalisation">
+    Adimensionalisation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-models-for-a-signle-species-dynamics">
+    Discrete models for a signle species dynamics
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynamics-of-interacting-populations-types-of-species-interactions">
+    Dynamics of interacting populations. Types of species' interactions.
+  </a>
+<nav aria-label="Dynamics of interacting populations. Types of species' interactions." class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#types-of-interactions">
+    Types of interactions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kolmogorov-systems">
+    Kolmogorov systems
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lotka-volterra">
+    Lotka-Volterra
+  </a>
+<nav aria-label="Lotka-Volterra" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nullclines">
+    Nullclines
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equilibrium-points-of-the-system">
+    Equilibrium points of the system
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-stability-analysis">
+    Linear stability analysis
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classical-lotka-volterra-for-predator-prey">
+    Classical Lotka-Volterra for predator-prey
+  </a>
+<nav aria-label="Classical Lotka-Volterra for predator-prey" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#invariant-manifolds-and-equilibrium-points">
+    Invariant manifolds and equilibrium points
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-analysis">
+    Stability analysis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-lyapunov-method">
+    The Lyapunov method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volterras-principle">
+    Volterra's principle
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Evolutionary%20models/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Phylogenetic%20Reconstruction/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Population%20Dynamics/">
+        Projects
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Numerical Methods for Dynamical Systems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Numerical Methods for Dynamical Systems" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Numerical Methods for Dynamical Systems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/00.%20Introduction%20to%20the%20class%20to%20NMDS/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.1.%20Preliminaries%20-%20Continuous%20dynamical%20systems/">
+        Preliminaries: Continuous dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.2.%20Preliminaries%20-%20Discrete%20dynamical%20systems/">
+        Discrete dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.3.%20Variational%20equations/">
+        Variational equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.4.%20Poincar%C3%A9%20map/">
+        Poincaré map
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.%20Equilibrium%20points%20and%20stability/">
+        Chapter 2: Equilibrium points and stability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.1.%20The%203%20body%20problem/">
+        2.1. The 3 body problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.2%20Expansion%20of%20parametrizations%20of%20invariant%20manifolds%20%28for%20flows%29/">
+        2.2 Expansion of parametrizations of invariant manifolds (for flows)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20220928%20NMDS%20Assignment%201/">
+        Assignment 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20221005%20NMDS%20Assignment%202/">
+        Assignment 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20221011%20NMDS%20Assignment%203/">
+        Assignment 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Algebraic%20group/">
+        Algebraic group
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Assignment%204/">
+        Assignment 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/First%20integral/">
+        First integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Jordan%20matrix/">
+        Jordan matrix
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Outline%20-%20Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Outline   Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Separatrix/">
+        Separatrix
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#one-dimensional-models-in-ecology">
+    One dimensional models in ecology:
+  </a>
+<nav aria-label="One dimensional models in ecology:" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fibonacci-sequence">
+    Fibonacci sequence
+  </a>
+<nav aria-label="Fibonacci sequence" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model">
+    Model
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#malthusian-growth">
+    Malthusian growth
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-model">
+    Logistic model
+  </a>
+<nav aria-label="Logistic model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#simple-analysis">
+    Simple analysis
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-model-with-predator">
+    Logistic model with predator
+  </a>
+<nav aria-label="Logistic model with predator" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-a-model-for-spruce-budworm">
+    Example: a model for Spruce Budworm
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model_1">
+    Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adimensionalisation">
+    Adimensionalisation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-models-for-a-signle-species-dynamics">
+    Discrete models for a signle species dynamics
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dynamics-of-interacting-populations-types-of-species-interactions">
+    Dynamics of interacting populations. Types of species' interactions.
+  </a>
+<nav aria-label="Dynamics of interacting populations. Types of species' interactions." class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#types-of-interactions">
+    Types of interactions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kolmogorov-systems">
+    Kolmogorov systems
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lotka-volterra">
+    Lotka-Volterra
+  </a>
+<nav aria-label="Lotka-Volterra" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nullclines">
+    Nullclines
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#equilibrium-points-of-the-system">
+    Equilibrium points of the system
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-stability-analysis">
+    Linear stability analysis
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classical-lotka-volterra-for-predator-prey">
+    Classical Lotka-Volterra for predator-prey
+  </a>
+<nav aria-label="Classical Lotka-Volterra for predator-prey" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#invariant-manifolds-and-equilibrium-points">
+    Invariant manifolds and equilibrium points
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stability-analysis">
+    Stability analysis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-lyapunov-method">
+    The Lyapunov method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#volterras-principle">
+    Volterra's principle
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="population-dynamics">Population dynamics<a class="headerlink" href="#population-dynamics" title="Permanent link">¶</a></h1>
+<ol>
+<li>One dimensional models in ecology. A single species dynamics<ol>
+<li>Continuous Models</li>
+<li>Discrete models</li>
+</ol>
+</li>
+<li>Dynamics of interacting populations<ol>
+<li>Types of species' interactions.</li>
+</ol>
+</li>
+</ol>
+<h2 id="one-dimensional-models-in-ecology">One dimensional models in ecology:<a class="headerlink" href="#one-dimensional-models-in-ecology" title="Permanent link">¶</a></h2>
+<h3 id="fibonacci-sequence">Fibonacci sequence<a class="headerlink" href="#fibonacci-sequence" title="Permanent link">¶</a></h3>
+<p>First naive model. Idealised (biologically unrealistic) rabbit population.</p>
+<h6 id="model">Model<a class="headerlink" href="#model" title="Permanent link">¶</a></h6>
+<ul>
+<li><span class="arithmatex">\(F_n\)</span> : number of pairs of rabbits at month <span class="arithmatex">\(n\)</span></li>
+<li><span class="arithmatex">\(F_{0}\)</span>=1 (one male and one female)</li>
+<li>Rabbits are able to mat at one month old (at the end of its second month, a female can produce another pair)</li>
+<li>Rabbits never die and a mating pair always produces one new pair (one male, one female) every month.</li>
+</ul>
+<p><em>How many rabbits at month <span class="arithmatex">\(n\)</span></em>?
+<span class="arithmatex">\(F_{n}\)</span> = # newborn pairs of rabbits + # adult pairs of adults = 
+     = # young at month n-1 + 2 (# adults at month <span class="arithmatex">\(n-1\)</span>)
+     = <span class="arithmatex">\((F_{n-1} - F_{n-2}) + 2(F_{n-1})\)</span> = <span class="arithmatex">\(F_{n-1}+F_{n-2}\)</span></p>
+<ul>
+<li># newborn pairs of rabbits = # pairs that did not exist at the month <span class="arithmatex">\(n-1\)</span>:  <span class="arithmatex">\(F_{n}- F_{n-1}\)</span></li>
+<li># aduult pairs of rabbits = # pairs thatexist at the month <span class="arithmatex">\(n-1\)</span>:  <span class="arithmatex">\(F_{n-1}\)</span></li>
+</ul>
+<h3 id="malthusian-growth">Malthusian growth<a class="headerlink" href="#malthusian-growth" title="Permanent link">¶</a></h3>
+<p>From [[Thomas Robert Malthus]]
+- <span class="arithmatex">\(N(t)\)</span>: population size at time <span class="arithmatex">\(t\)</span>
+- <span class="arithmatex">\(\frac{dN}{dt}\)</span>: births - deaths <span class="arithmatex">\(\pm\)</span> mgration</p>
+<p><span class="arithmatex">\(\frac{dN}{dt} = bN - dN = (b-d)\cdot N\)</span>,  for <span class="arithmatex">\(b, d&gt;0\)</span></p>
+<p>The solution to this is $N(t) = N_{0}e^{(b-d)t} $, with <span class="arithmatex">\(N_{0} = N(0)\)</span>.</p>
+<p>This is a pretty good approximation for the population growth during the 18-20th century, but eventually populations need to compare for resources.</p>
+<p>Link to population predictions by UN: <a href="https://population.un.org/wpp/Graphs/Probabilistic/POP/TOT/">https://population.un.org/wpp/Graphs/Probabilistic/POP/TOT/</a></p>
+<h3 id="logistic-model">Logistic model<a class="headerlink" href="#logistic-model" title="Permanent link">¶</a></h3>
+<p>[[Pierre François Verhulst]]</p>
+<p>It includes a negative term, dependent on the population squared:
+<span class="arithmatex">\(<span class="arithmatex">\(\frac{dN}{dt} = m N - n N^{2}\)</span>\)</span>
+This tends to saturation as the time grows:
+<span class="arithmatex">\(<span class="arithmatex">\(lim_{t\to \infty} N(t) = \frac{m}{n}=k\)</span>\)</span>
+where <span class="arithmatex">\(k\)</span> is also known as the <strong>carrying capacity of the system</strong>.</p>
+<p>An alternative way of writing this is
+<span class="arithmatex">\(<span class="arithmatex">\(\frac{dN}{dt} = m N\left(1 - \frac{n}{m}N\right) = rN\left(1-\frac{N}{k}\right)\)</span>\)</span>
+For small <span class="arithmatex">\(N\)</span> small, <span class="arithmatex">\(\dot{N} \sim rN\)</span>.
+For large <span class="arithmatex">\(N\)</span>, <span class="arithmatex">\(N \sim k\)</span>.</p>
+<h4 id="simple-analysis">Simple analysis<a class="headerlink" href="#simple-analysis" title="Permanent link">¶</a></h4>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\frac{dN}{dt}= 0 = f(N) = rN\left(\frac{1-N}{k}\right)= 0\)</span>\)</span>
+We have two equilibrim points, <span class="arithmatex">\(N=0\)</span>, <span class="arithmatex">\(N=k\)</span>.
+(photo)</p>
+<p>THis also has an analytical solution:
+<span class="arithmatex">\(<span class="arithmatex">\(N(t) = \frac{kN_{0}}{N_{0}+(k-N_{0})e^{-rt}}, \qquad r&gt;0\)</span>\)</span> The limit behavior is:
+<span class="arithmatex">\(<span class="arithmatex">\(lim_{t\to \infty} N(t) = \frac{kN_{0}}{N_{0}}=k \qquad \textrm{if } N_{0}\neq 0\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(N_{0}=0, \quad N(t) = 0 \qquad \forall t\geq0\)</span>\)</span>
+When we do a simulation with <span class="arithmatex">\(N_{0}\)</span> small, we observe a sigmoid behavior: <img alt="Sigmoid" src="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FA-Basic-sigmoid-function-with-two-parameters-c1-and-c2-as-commonly-used-for-subitizing_fig2_326355896&amp;psig=AOvVaw3IhUW757s-lD9ucFXiI2MM&amp;ust=1666874827038000&amp;source=images&amp;cd=vfe&amp;ved=0CA0QjRxqFwoTCIieneL2_foCFQAAAAAdAAAAABAM"/></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(S(x) = \frac{B}{1+e^{-\frac{x-a}{\mu}}}\)</span>\)</span>
+where <span class="arithmatex">\(\mu\)</span> is related to the slope of the sigmoid (see pictures)</p>
+<h3 id="logistic-model-with-predator">Logistic model with predator<a class="headerlink" href="#logistic-model-with-predator" title="Permanent link">¶</a></h3>
+<h5 id="example-a-model-for-spruce-budworm">Example: a model for Spruce Budworm<a class="headerlink" href="#example-a-model-for-spruce-budworm" title="Permanent link">¶</a></h5>
+<p>Most of the time, the population of this insect is under control. But every once in a while (10-15 years), it grows dramatically and destroys large parts of the forest. After the outbreaks, it goes back to original levels. </p>
+<p>Some birds eat this animals. When there's an outbreak, the birds are not able to keep the population of insects under control.</p>
+<h5 id="model_1">Model<a class="headerlink" href="#model_1" title="Permanent link">¶</a></h5>
+<p>Ludwig, Jones and Holling (1978)
+<span class="arithmatex">\(<span class="arithmatex">\(N(t) \textrm{: population size of budworms}\)</span>\)</span></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\frac{dN}{dt} = r_BN\left(1-\frac{N}{k_{B}}\right)- p(N)\)</span>\)</span>
+where now we account a predator species (birds):
+<span class="arithmatex">\(<span class="arithmatex">\(p(N) = \frac{BN^{2}}{A^{2} + N^{2}}\)</span>\)</span>
+where <span class="arithmatex">\(p(n)\)</span> models the mortality of budworms due to the predatory birds. This saturates at a value <span class="arithmatex">\(B\)</span>. So, even if the population of budworm increases, then <span class="arithmatex">\(p\)</span> is still the same. We call <span class="arithmatex">\(B\)</span> the maximum predation rate. The parameter <span class="arithmatex">\(A\)</span> is the value at which the predation rate is the half of its maximum.</p>
+<h4 id="adimensionalisation">Adimensionalisation<a class="headerlink" href="#adimensionalisation" title="Permanent link">¶</a></h4>
+<p><strong>Change of variables</strong></p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(u=\frac{N}{a} \quad r=\frac{Ar_{b}}{B} \quad q=\frac{k_{B}}{A} \quad \tau=\frac{Bt}{A}\)</span>\)</span>
+$$\begin{align<em>}
+\frac{du}{d\tau}&amp;=\frac{du}{dt}\frac{dt}{d\tau} = \frac{1}{A}\frac{dN}{dt} \frac{A}{B} = \frac{1}{B} \frac{dN}{dt}\
+&amp; =\frac{1}{B}\left[r_{B}A u\left(1 - \frac{Au}{k_{B}}\right) - \frac{Bu<sup>{2}A</sup>2}{A<sup>{2}+u</sup>{2}A^{2}}\right]\
+u' &amp;= ru\left(1-\frac{u}{q}\right) - \frac{u<sup>{2}}{1+u</sup>{2}}= f(u)\end{align</em>}
+$$
+Now we have a new parameter <span class="arithmatex">\(q = \frac{k_{B}}{A}\)</span>. If we consider <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(r_{B}\)</span> fixed,
+we can see that for low <span class="arithmatex">\(q\)</span>, there's only one fixed point. If <span class="arithmatex">\(q\)</span> increases, two more fixed points appear, one of them stable as well. However, if you have a small starting population, you won't reach it. </p>
+<p>If then you keep increasing <span class="arithmatex">\(q\)</span>, you lose the first stable point, and we have a jump to <span class="arithmatex">\(u^*_3\)</span>. Now the birds can no longercontrol the worms populations.</p>
+<p>But these worms kill the forest, so <span class="arithmatex">\(q\)</span> will start decreasing until eventually <span class="arithmatex">\(q\)</span> is so low that you are back to scenario 1.  (Cusp bifurcation?)</p>
+<p><a href="https://mathinsight.org/spruce_budworm_outbreak_model">Example to play with</a></p>
+<h4 id="discrete-models-for-a-signle-species-dynamics">Discrete models for a signle species dynamics<a class="headerlink" href="#discrete-models-for-a-signle-species-dynamics" title="Permanent link">¶</a></h4>
+<div class="arithmatex">\[N_{k} \textrm{ : population size at time } t_{k,}\quad k\in \mathbb{N}$$
+This is a sequence: $\{N_k\}_{k\in\mathbb{N}}$ and a quite general expression for them is
+$$N_{k}= N_{k-1} f(N_{k-1})\]</div>
+<p>For instance, when <span class="arithmatex">\(f(N_{k}) = r\)</span>, we have discrete Malthusian, <span class="arithmatex">\(N_{k}= N_{k-1} r\)</span>. For <span class="arithmatex">\(r&gt;1\)</span> ,  <span class="arithmatex">\(N_{k} \to \infty\)</span> for <span class="arithmatex">\(k\to\infty\)</span> and for <span class="arithmatex">\(r&lt;1\)</span>, <span class="arithmatex">\(N_{k}\to0\)</span>.</p>
+<h2 id="dynamics-of-interacting-populations-types-of-species-interactions">Dynamics of interacting populations. Types of species' interactions.<a class="headerlink" href="#dynamics-of-interacting-populations-types-of-species-interactions" title="Permanent link">¶</a></h2>
+<h3 id="types-of-interactions">Types of interactions<a class="headerlink" href="#types-of-interactions" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Interespecific interactions</strong>: One population affects another species' populations.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutualism</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Competition</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Predation or parasitism</td>
+<td>+</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Commensalism</td>
+<td>+</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Amensalism</td>
+<td>-</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Neutralism</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kolmogorov-systems">Kolmogorov systems<a class="headerlink" href="#kolmogorov-systems" title="Permanent link">¶</a></h3>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{cases}
+x_{i} &amp;\textrm{ :  density of species }i \qquad i=1\dots n \\
+n  &amp; \textrm{:  \# species}
+\end{cases}\)</span>\)</span>
+The system are
+<span class="arithmatex">\(<span class="arithmatex">\(\dot{x}_{i}  = x_{i}f_{i}(\vec{x})\)</span>\)</span>
+with <span class="arithmatex">\(\vec{x} = (x_{1}, x_{2}, \dots, x_{n})\)</span>,
+and <span class="arithmatex">\(f_{i}: \mathbb{R}^{n} \longrightarrow \mathbb{R} \quad \mathcal{C}^1\)</span> which models the interaction with other species as well of self interaction.</p>
+<p>We know <span class="arithmatex">\(x_{i}= 0\)</span> means that <span class="arithmatex">\(\dot{x}_{i}=0\)</span>, so that <span class="arithmatex">\(x_{i}(t) = 0, \quad \forall t \geq 0\)</span>. In other ords, the coordinate axes are invariant subspaces of the system.</p>
+<h3 id="lotka-volterra">Lotka-Volterra<a class="headerlink" href="#lotka-volterra" title="Permanent link">¶</a></h3>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\frac{\dot{x}_{i}}{x_{i}}= r_{i}+ \sum\limits_{j=1}^{n} a_{ij} x_{j}\)</span>\)</span>
+where <span class="arithmatex">\(r_i\)</span> is the growth rate per individual of species <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(a_{ij}\)</span> is the interactions of species <span class="arithmatex">\(j\)</span> over species <span class="arithmatex">\(i\)</span>, so that:
+- <span class="arithmatex">\(a_{ij}&gt;0 \quad j \rightarrow i\)</span>, then +
+- <span class="arithmatex">\(a_{ij}&lt;0 \quad j \rightarrow i\)</span>, then -</p>
+<p>For the matrix,
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{pmatrix}a_{11} &amp; a_{12} &amp; \dots  &amp; \dots\\ \dots &amp; a_22 &amp; \dots &amp; \dots \\ \vdots &amp; &amp; &amp; \vdots \\ a_{n1} &amp; a_n2 &amp; \dots &amp; a_{nn}\end{pmatrix}\)</span>\)</span>
+the diagonal corresponds to the intraspecific interactions.</p>
+<p>As an example, we can take <span class="arithmatex">\(n=2\)</span>:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\dot{x}_{1} &amp;= r_{1}x_{1}\frac{1-x_{1}}{k_{1}}- c_{1}x_{1}x_{2} \quad c_{1}&gt; 0\\
+\dot{x}_{2} &amp;= r_{2}x_{2}\frac{1-x_{2}}{k_{2}}- c_{2}x_{1}x_{2} \quad c_{2}&gt; 0
+\end{align*}\)</span>\)</span>
+The linear system will be:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{pmatrix} \frac{\dot{x}_{1}}{x_{1}} \\ \frac{\dot{x}_{2}}{x_{2}} \end{pmatrix} = \begin{pmatrix} r_1 \\ r_{2}\end{pmatrix} + \begin{pmatrix} - \frac{r_{1}}{k_{1}} &amp; -c_{1} \\ -c_{2} &amp; - r_{2}/k_{2}\end{pmatrix}\begin{pmatrix}x_{1} \\ x_{2}\end{pmatrix}\)</span>\)</span>
+We will perform a change of variables:
+<span class="arithmatex">\(<span class="arithmatex">\(u = \frac{x_{1}}{k_{1}} \qquad v = \frac{x_{2}}{k_{2}}\qquad \tau = r_{1}t\)</span>\)</span>so that:
+$$ \frac{du}{dt}= \frac{1}{k_{1}}\frac{dx_{1}}{dt} \qquad \frac{dt}{d\tau}=\frac{1}{r_{1}}$$
+and then
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+{u}' &amp;= \frac{du}{d\tau} = \frac{du}{dt}\frac{dt}{d\tau} = \frac{1}{k_{1}r_{1}}\left(r_{1}uk_{1}\left(\frac{1-uk_{1}}{k_{1}}\right)-c_{1}uk_{1}(vk_{2})\right) = u\left(\frac{1-u-c_{1}k_{2}}{r_{1}}uv\right)
+\end{align*}\)</span>\)</span>
+and we define
+... (ask for notes)</p>
+<p>Unit square <span class="arithmatex">\([0, 1] \times [0, 1]\)</span> is invariant by the dynamics:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\{u = 0\} \quad u'=0 \quad \{u = 0\} \textrm{ invariant}\\
+\{v = 0\} \quad v'=0 \quad \{v = 0\} \textrm{ invariant}
+\end{align*}\)</span>\)</span>
+and
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\{u = 1\} \quad &amp;u'=- av &lt; 0 \quad &amp;v&gt;0\\
+\{v = 1\} \quad &amp;v'=-pbw &lt; 0 &amp;u&gt;0
+\end{align*}\)</span>\)</span></p>
+<p>If I start in the unit square, I cannot leave: they will remain inside the unit square.</p>
+<p>From the [[Poincaré-Bendixson theorem]], we can apply it so that we know we only have fixed points or orbits (check slides).</p>
+<h4 id="nullclines">Nullclines<a class="headerlink" href="#nullclines" title="Permanent link">¶</a></h4>
+<ul>
+<li><strong>u-nullclines</strong>: <span class="arithmatex">\(u'=0 \Rightarrow u(1-u-av) = 0\)</span>, so that we have:<ul>
+<li><span class="arithmatex">\(u = 0\)</span></li>
+<li><span class="arithmatex">\(u = 1-av\)</span></li>
+</ul>
+</li>
+<li><strong>v-nullclines</strong>: <span class="arithmatex">\(v'=0 \Rightarrow pv(1-v-bu) = 0\)</span>, so that we have:<ul>
+<li><span class="arithmatex">\(v = 0\)</span></li>
+<li><span class="arithmatex">\(v = 1-bu\)</span></li>
+</ul>
+</li>
+</ul>
+<h4 id="equilibrium-points-of-the-system">Equilibrium points of the system<a class="headerlink" href="#equilibrium-points-of-the-system" title="Permanent link">¶</a></h4>
+<p>The equilibrium points of the system are when nullclines cross: <span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+u' = 0\\
+v' = 0
+\end{align*}\)</span>\)</span>
+so <span class="arithmatex">\(<span class="arithmatex">\((u^{*}, v^{*}) = \begin{cases}
+u = 1-av \\
+v = 1-bu
+\end{cases}\)</span>\)</span>
+This point falls inside the <span class="arithmatex">\([0, 1] \times [0, 1]\)</span> if
+<span class="arithmatex">\(<span class="arithmatex">\(0 \leq u^{*} = \frac{1-a}{1-ab} \leq 1 \qquad 0 \leq v^{*} = \frac{1-b}{1-ab} \leq 1\)</span>\)</span>or, in other words if <span class="arithmatex">\(a, b\)</span> are both <span class="arithmatex">\(&gt; 1\)</span> or <span class="arithmatex">\(&lt; 1\)</span>.</p>
+<p>Check picture for both cases.</p>
+<p>The <strong>equilibrium point</strong> is a point of coexistence for both species.</p>
+<h4 id="linear-stability-analysis">Linear stability analysis<a class="headerlink" href="#linear-stability-analysis" title="Permanent link">¶</a></h4>
+<p><span class="arithmatex">\(J(u, v) = DF(u, v) = \begin{pmatrix}1-2u-av &amp; -au \\ -bpv &amp; \rho(1-2v-bu)\end{pmatrix}\)</span>
+- For the origin:
+    <span class="arithmatex">\(<span class="arithmatex">\(J(0, 0) = \begin{pmatrix}1 &amp; 0 \\ 0 &amp; \rho\end{pmatrix} \Longrightarrow \textrm{eigenvalues} \begin{cases}
+\lambda_{1}= 1 &gt; 0 \rightarrow e_{1}=(1,0)\\
+\lambda_{2}= \rho &gt; 0 \rightarrow e_{1}=(0,1)
+\end{cases}\)</span>\)</span>
+<span class="arithmatex">\(\Rightarrow (0, 0)\)</span> is a repulsor.
+    <em>If we have some individuals from one (or both species) the population will grow</em></p>
+<ul>
+<li>
+<p>For the points in the axis:
+    $$J(1, 0) = \begin{pmatrix}-1  &amp; -a \ 0 &amp; \rho(1-b)\end{pmatrix} \Longrightarrow \textrm{eigenvalues} \begin{cases}
+\lambda_{1}= -1 &lt; 0 \rightarrow e_{1}=(1,0)\
+\lambda_{2}= \rho(1-b)\begin{cases}</p>
+<blockquote>
+<p>0 \textrm{ if } b &lt; 1 \
+&lt; 0 \textrm{ if } b &gt; 1
+\end{cases}  \rightarrow e_{2}=(0,1)
+\end{cases} $$
+    <span class="arithmatex">\(\Rightarrow\)</span> (1, 0) is an <strong>attractor</strong> if <span class="arithmatex">\(b&gt;1\)</span> and a <strong>saddle point</strong> if <span class="arithmatex">\(b&lt;0\)</span>
+    $$J(0, 1) = \begin{pmatrix}1-a  &amp; 0 \ -b\rho &amp; \rho\end{pmatrix} \Longrightarrow \textrm{eigenvalues} \begin{cases}
+\lambda_{1}= 1 -a  &amp;\rightarrow e_{1}=(1,\beta)\
+\lambda_{2}= -\rho &amp;\rightarrow e_{2}=(0,1)
+\end{cases} $$
+    <span class="arithmatex">\(\lambda_{1} &gt; 0\)</span> if <span class="arithmatex">\(a&lt;1\)</span> <span class="arithmatex">\(\Rightarrow\)</span> <strong>saddle point</strong>
+<span class="arithmatex">\(\lambda_{1} &lt; 0\)</span> if <span class="arithmatex">\(a&gt;1\)</span> <span class="arithmatex">\(\Rightarrow\)</span> <strong>attractor</strong></p>
+</blockquote>
+</li>
+<li>
+<p>Finally, for the point inside the unit square:
+<span class="arithmatex">\(<span class="arithmatex">\(J(u^{*}*, v^{*}) = \begin{pmatrix} \dots &amp; \dots \\\dots &amp; \dots\end{pmatrix} \Longrightarrow \begin{cases}
+a&lt;1, \; b&lt;1 \Rightarrow \lambda_{1}, \; \lambda_{2} &lt; 0 \quad 
+\textrm{attractor} \\
+a&gt;1, \; b&gt;1 \Rightarrow \lambda_{1}\cdot \lambda_{2} &lt; 0 \quad 
+\textrm{saddle point}
+\end{cases}\)</span>\)</span>
+    The resulting system is a <strong>bistable system</strong>: it has two attractors. The orange line is the separatrix: it's the stable manifold of the saddle point and it separates the basin of attraction of each attractor.</p>
+</li>
+</ul>
+<p>In the first situation (<span class="arithmatex">\(a, b&lt; 1\)</span>) both species can coexist. In the other situation, <span class="arithmatex">\(a, b&gt;1\)</span>, one species will lead to the others exclusion. </p>
+<blockquote>
+<p>This makes me think of competition for languages: [[Competition in languages]]</p>
+</blockquote>
+<h3 id="classical-lotka-volterra-for-predator-prey">Classical Lotka-Volterra for predator-prey<a class="headerlink" href="#classical-lotka-volterra-for-predator-prey" title="Permanent link">¶</a></h3>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+N(t): &amp;\textrm{ population of preys}\\
+P(t): &amp;\textrm{ population of predators}
+\end{align*}\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{pmatrix} \frac{\dot{N}}{N} \\ \frac{\dot{P}}{P}\end{pmatrix} = \begin{pmatrix}a \\ -d\end{pmatrix} + \begin{pmatrix}0 &amp; -b \\ c &amp; 0\end{pmatrix}\begin{pmatrix}N \\ P\end{pmatrix}\)</span>\)</span>
+Notice that in this model, the intraspecific interactions (the diagonal) are 0. And the preys lose from the interaction (<span class="arithmatex">\(-b\)</span>) and the predators gain (c).</p>
+<p>In the <strong>absence of predators</strong>, the evolutions of preys is described by the Malthusian growth:
+<span class="arithmatex">\(<span class="arithmatex">\(\dot{N} = aN \quad N(t) = N_{0}e^{at}\)</span>\)</span>
+However, in the <strong>absence of preys</strong>, the predators go exstinct:
+<span class="arithmatex">\(<span class="arithmatex">\(\dot{P} = dP \quad P(t) = P_{0}e^{-dt}\)</span>\)</span></p>
+<h4 id="invariant-manifolds-and-equilibrium-points">Invariant manifolds and equilibrium points<a class="headerlink" href="#invariant-manifolds-and-equilibrium-points" title="Permanent link">¶</a></h4>
+<ul>
+<li><span class="arithmatex">\(\{N = 0\}\)</span> and <span class="arithmatex">\(\{P = 0\}\)</span> are <strong>invariant</strong> for the dynamics.</li>
+<li><strong>Equilibrium points</strong>: <span class="arithmatex">(<span class="arithmatex">\(\begin{cases}
+\dot{N} = 0 \quad N(a-bP) = 0 \rightarrow\begin{cases}
+N=0 \\
+P = \frac{a}{b}&gt; 0
+\end{cases}\\
+\dot{P} = 0 \quad N(a-bP) = 0 \rightarrow\begin{cases}
+N=0 \end{cases}
+\end{cases}\)</span>\)</span><blockquote>
+<p>Check picture to finish this</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="stability-analysis">Stability analysis<a class="headerlink" href="#stability-analysis" title="Permanent link">¶</a></h4>
+<div class="arithmatex">\[J(N, P) = \begin{pmatrix}a-bP &amp; -bN \\ cP &amp; cN-d\end{pmatrix}$$
+For the **origin**:
+$$J(0, 0) = \begin{pmatrix}a &amp; 0  \\ 0 &amp; -d\end{pmatrix} \Longrightarrow \begin{cases}
+\lambda_{1}= a&gt; 0 \\
+\lambda_{2}= -d &lt; 0
+\end{cases}\]</div>
+<blockquote>
+<p>Èlia</p>
+</blockquote>
+<h4 id="the-lyapunov-method">The Lyapunov method<a class="headerlink" href="#the-lyapunov-method" title="Permanent link">¶</a></h4>
+<p>[[The Lyapunov method]]</p>
+<blockquote>
+<p>Put this on a new section</p>
+</blockquote>
+<p>Check slides: The Lyapunov method</p>
+<p>If <span class="arithmatex">\(\dot{V} = 0\)</span> it means that <span class="arithmatex">\(V(x(t)) = cnt\)</span> and if this happens we say that <span class="arithmatex">\(V\)</span> is the <a href="../../Numerical%20Methods%20for%20Dynamical%20Systems/First%20integral/">First integral</a> of the system</p>
+<p>For Lotka-Volterra, we rewrite:
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{align*}
+\frac{1}{N}\frac{dN}{dt}= a-bP\\
+\frac{1}{P}\frac{dP}{dt}= cN -d
+\end{align*}\)</span>\)</span>
+as
+<span class="arithmatex">\(<span class="arithmatex">(\begin{align*}
+\frac{dN}{dt}\left(-c + \frac{d}{N}\right)<code>+ \frac{dP}{dt}\left(\frac{a}{P}-b\right)= 0\\
+\frac{d}{dt}\left(cN</code>bP - d\ln{N} - a\ln{P}\right) = 0
+\end{align*}\)</span>\)</span>&gt; Check pictures</p>
+<p>So, <span class="arithmatex">\(x_{0}\)</span> is <strong>lypapunov stable</strong> and is a center: the rest of the orbits are periodic around it. The place where I am is determined by the initial conditions.</p>
+<p>With a suitable change of variables, one can see that this is the [[Hamiltonian]] and that this is not only a local behavior, but also a global. To do so, you introduce the new canonical variables <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(q\)</span>. Then we can see that it's a Hamiltonian system. Since the transformation is valid for the whole system, then the behavior is valid for the whole system. </p>
+<p>The number of individuals form each population oscillates over time.</p>
+<h4 id="volterras-principle">Volterra's principle<a class="headerlink" href="#volterras-principle" title="Permanent link">¶</a></h4>
+<blockquote>
+<p>Check slide</p>
+</blockquote>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Phylogenetics and Genomics" class="md-footer__link md-footer__link--prev" href="../Phylogenetics%20and%20Genomics%20-%20Outline/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Phylogenetics and Genomics
+            </div>
+</div>
+</a>
+<a aria-label="Next: Projects" class="md-footer__link md-footer__link--next" href="../Projects%20in%20Evolutionary%20models/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Projects
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

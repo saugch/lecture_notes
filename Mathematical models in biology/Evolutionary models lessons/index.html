@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Evolutionary models - Lecture notes - MAMME</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#evolutionary-models">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Lecture notes - MAMME" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Lecture notes - MAMME
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Evolutionary models
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="teal" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="bluegrey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Lecture notes - MAMME" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Lecture notes - MAMME">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Lecture notes - MAMME
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Lecture Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Mathematical models in biology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Mathematical models in biology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Mathematical models in biology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/">
+        Mathematicals Models in Biology - An introduction
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Evolutionary models
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Evolutionary models
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#markov-matrices">
+    Markov matrices
+  </a>
+<nav aria-label="Markov matrices" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-perron-frobenius">
+    Theorem (Perron-Frobenius)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#claim">
+    Claim
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conditional-probabilities">
+    Conditional probabilities
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-time-probabilistic-processes">
+    Discrete-time probabilistic processes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-time-markov-processes">
+    Discrete-time Markov processes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evolutionary-models_1">
+    Evolutionary models
+  </a>
+<nav aria-label="Evolutionary models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nucleotide-substitution-models">
+    Nucleotide substitution models
+  </a>
+<nav aria-label="Nucleotide substitution models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous-markov-models">
+    Homogeneous Markov models
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jukes-cantor-model-jc">
+    Jukes-Cantor Model (JC)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kimura-models">
+    Kimura models
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strand-symmetric-model-ssm">
+    Strand symmetric model (SSM)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#general-markov-model-gmm">
+    General Markov model (GMM)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stationary-process">
+    Stationary process
+  </a>
+<nav aria-label="Stationary process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+    Definition
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time-reversibility">
+    Time reversibility
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#biology-vs-maths">
+    Biology vs Maths
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Genomics/">
+        Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Introduction%20class%20%20to%20MMiB/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Outline%20-%20Mathematical%20models%20in%20Biology/">
+        Mathematical models in Biology
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Phylogenetic%20reconstruction%20lesson/">
+        Phylogenetic reconstruction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Phylogenetics%20and%20Genomics%20-%20Outline/">
+        Phylogenetics and Genomics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Population%20dynamics%20lecture/">
+        Population dynamics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Evolutionary%20models/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Phylogenetic%20Reconstruction/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Projects%20in%20Population%20Dynamics/">
+        Projects
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Numerical Methods for Dynamical Systems
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Numerical Methods for Dynamical Systems" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Numerical Methods for Dynamical Systems
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/00.%20Introduction%20to%20the%20class%20to%20NMDS/">
+        Introduction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.1.%20Preliminaries%20-%20Continuous%20dynamical%20systems/">
+        Preliminaries: Continuous dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.2.%20Preliminaries%20-%20Discrete%20dynamical%20systems/">
+        Discrete dynamical systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.3.%20Variational%20equations/">
+        Variational equations
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/1.4.%20Poincar%C3%A9%20map/">
+        Poincaré map
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.%20Equilibrium%20points%20and%20stability/">
+        Chapter 2: Equilibrium points and stability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.1.%20The%203%20body%20problem/">
+        2.1. The 3 body problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/2.2%20Expansion%20of%20parametrizations%20of%20invariant%20manifolds%20%28for%20flows%29/">
+        2.2 Expansion of parametrizations of invariant manifolds (for flows)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20220928%20NMDS%20Assignment%201/">
+        Assignment 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20221005%20NMDS%20Assignment%202/">
+        Assignment 2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/20221011%20NMDS%20Assignment%203/">
+        Assignment 3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Algebraic%20group/">
+        Algebraic group
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Assignment%204/">
+        Assignment 4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/First%20integral/">
+        First integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Jordan%20matrix/">
+        Jordan matrix
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Outline%20-%20Numerical%20Methods%20for%20Dynamical%20Systems/">
+        Outline   Numerical Methods for Dynamical Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Separatrix/">
+        Separatrix
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#markov-matrices">
+    Markov matrices
+  </a>
+<nav aria-label="Markov matrices" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#theorem-perron-frobenius">
+    Theorem (Perron-Frobenius)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#claim">
+    Claim
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conditional-probabilities">
+    Conditional probabilities
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-time-probabilistic-processes">
+    Discrete-time probabilistic processes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-time-markov-processes">
+    Discrete-time Markov processes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evolutionary-models_1">
+    Evolutionary models
+  </a>
+<nav aria-label="Evolutionary models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nucleotide-substitution-models">
+    Nucleotide substitution models
+  </a>
+<nav aria-label="Nucleotide substitution models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous-markov-models">
+    Homogeneous Markov models
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jukes-cantor-model-jc">
+    Jukes-Cantor Model (JC)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kimura-models">
+    Kimura models
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strand-symmetric-model-ssm">
+    Strand symmetric model (SSM)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#general-markov-model-gmm">
+    General Markov model (GMM)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stationary-process">
+    Stationary process
+  </a>
+<nav aria-label="Stationary process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition">
+    Definition
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time-reversibility">
+    Time reversibility
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#biology-vs-maths">
+    Biology vs Maths
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="evolutionary-models">Evolutionary models<a class="headerlink" href="#evolutionary-models" title="Permanent link">¶</a></h1>
+<h2 id="markov-matrices">Markov matrices<a class="headerlink" href="#markov-matrices" title="Permanent link">¶</a></h2>
+<p>Square matrix with real entries <span class="arithmatex">\(\geq 0\)</span> whose <em>rows sum to 1</em> is called a Markov matrix (or stochastic matrix). Equivalent to seighg that the vector <span class="arithmatex">\((1, \dots 1)^T\)</span> is an eigenvector of eigenvalue 1.</p>
+<p>In general our Markov matrices will be <span class="arithmatex">\(4 \times 4\)</span> (4 nucletoids).</p>
+<h6 id="theorem-perron-frobenius">Theorem (Perron-Frobenius)<a class="headerlink" href="#theorem-perron-frobenius" title="Permanent link">¶</a></h6>
+<h6 id="claim">Claim<a class="headerlink" href="#claim" title="Permanent link">¶</a></h6>
+<p>...
+1. 
+2. 
+3. [[convex sum]] of Markov matrices
+Is <span class="arithmatex">\(\Delta_n\)</span> a <a href="../../Numerical%20Methods%20for%20Dynamical%20Systems/Algebraic%20group/">Algebraic group</a>? In other words, is the inverse of matrix A also a Markov matrix?
+The answer is <strong>no</strong>. Per <a href="#theorem-perron-frobenius">#Theorem Perron-Frobenius</a>, all eigenvalues are upper bounded by 1.</p>
+<p>Consider
+$<span class="arithmatex">\(<span class="arithmatex">\(\begin{pmatrix} \frac{1}{n} &amp; \dots / \frac{1}{n} \\\\ \frac{1}{n} &amp; \dots / \frac{1}{n}  \end{pmatrix}\)</span>\)</span>
+The determinant is 0 and it's not invertible (Proof in book in the slides).</p>
+<h3 id="conditional-probabilities">Conditional probabilities<a class="headerlink" href="#conditional-probabilities" title="Permanent link">¶</a></h3>
+<p>A is independent of B: <span class="arithmatex">\(A \perp \!\!\! \perp B\)</span>.</p>
+<p>...
+Let's say A is independent of B given C: <span class="arithmatex">\(A \perp \!\!\! \perp B \:|\: C\)</span>. Two dependent events that become independent once we assume a third event.</p>
+<h3 id="discrete-time-probabilistic-processes">Discrete-time probabilistic processes<a class="headerlink" href="#discrete-time-probabilistic-processes" title="Permanent link">¶</a></h3>
+<p>In all this teory, time is considered discrete.</p>
+<h3 id="discrete-time-markov-processes">Discrete-time Markov processes<a class="headerlink" href="#discrete-time-markov-processes" title="Permanent link">¶</a></h3>
+<p>A discrete-time probabilistic process is called a Markov process if future is independent of past given the present.</p>
+<p>I don't care about what happened yesterday: like in the getting sick or the weather example. It's not the case for the "self-avoiding random walk".</p>
+<p>We can attach a matrix <span class="arithmatex">\(M(n)\)</span> to run the transition from one state to the other. It's a Markov matrix. We call them <strong>Markov matrices</strong>.</p>
+<h2 id="evolutionary-models_1">Evolutionary models<a class="headerlink" href="#evolutionary-models_1" title="Permanent link">¶</a></h2>
+<p><strong>Models</strong>: Simplifications of reality. 
+Models are appropiate or not depending on what we want to study.
+More complex models does not mean better models.</p>
+<p><strong>Substitution models</strong>: What happens at each step. We have a sequence of genes that is transmited and we want to understand the rule of how the substitution may act.</p>
+<h3 id="nucleotide-substitution-models">Nucleotide substitution models<a class="headerlink" href="#nucleotide-substitution-models" title="Permanent link">¶</a></h3>
+<ul>
+<li>Assumption: Biological hereditary information encoded in the DNA</li>
+<li>Code of 4 nucleotides: A, G, C, T</li>
+<li>Double helix structure: pairing A-T, G-C</li>
+<li>The order or sequence determines the information available for building proteins (every 3 is an aminoacid)</li>
+<li>It can make copies of itself.</li>
+</ul>
+<p>Let's assume a sequence of nucleotides <span class="arithmatex">\(S=TCAACTTGATC\)</span> changing through an evolutionary process <span class="arithmatex">\(<span class="arithmatex">\(S_{0} = S \rightarrow S_{1}\rightarrow S_{2}\dots\)</span>\)</span>
+Possible changes:
+- <em>Substitutions</em> (error in duplication):We will focus in this one.
+- <em>Insertions</em>
+- <em>Deletions</em>
+We won't include insertions or deletions. Not realistic but it's the typical way of modeling.</p>
+<h4 id="homogeneous-markov-models">Homogeneous Markov models<a class="headerlink" href="#homogeneous-markov-models" title="Permanent link">¶</a></h4>
+<p>Each site follows a discrete-time probabilistic process. We only care if each position is an A, C, G, T</p>
+<p><em>Hypothesis</em>
+- <em>iid hypothesis</em>: Each site of the sequence evolves independently of the other sites and with the same probabilities. It's the same probability of changing in the end of the sequence that in the beginning (homogeneity across sites). <em>Not realistic</em>: Also because of the genetic code, substitutions in the 3rd nucletoid of the codon does not always matter.
+- The process does not depend on the past given the present (Markov hypothesis)
+- From generation to generation the same system of probabilities are ruling. This is not realistic if you consider a big amount of time. It's called homogeneity across lineages.</p>
+<p>HOmogeneous Markov model is determined by
+1. Transition matrix
+2. Ancestral distribution <span class="arithmatex">\(S_0\)</span>.</p>
+<p><strong>How are we estimating them?</strong>
+- <strong>Estimation</strong>: With the relative frequency of changes
+- <strong>Ancestral distribution</strong>: Count the relative frequencies of <span class="arithmatex">\(S_0\)</span>. If <span class="arithmatex">\(S_0\)</span> is not available, we take <span class="arithmatex">\(p_0\)</span> as the <a href="https://mathworld.wolfram.com/Eigenvector.html#:~:text=is%20square%20is%20known%20as%20the%20eigen%20decomposition%20theorem.&amp;text=which%20means%20the%20right%20eigenvalues%20must%20have%20zero%20determinant%2C%20i.e.%2C&amp;text=%2C%20i.e.%2C%20left%20and%20right%20eigenvalues,is%20not%20true%20for%20eigenvectors.">left eigenvector</a> of eigenvalue 1 of M.</p>
+<h3 id="jukes-cantor-model-jc">Jukes-Cantor Model (JC)<a class="headerlink" href="#jukes-cantor-model-jc" title="Permanent link">¶</a></h3>
+<p>Simplest model
+1. Distribution of the ancestral sequence is uniform: <span class="arithmatex">\(p^{0}= (\frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4})\)</span>
+2. Probability of obserivng a subsitution is the same (no matter the nucletoid)</p>
+<h3 id="kimura-models">Kimura models<a class="headerlink" href="#kimura-models" title="Permanent link">¶</a></h3>
+<p><strong>Biological motivation</strong>
+Nucletoids have two groups according to biochemical structure. A substitution within the same type (within purines or within pyrimidines) is a transition, which is more likely. From purine to pyrimidine or the other way around, it's called transitions.</p>
+<p><strong>3 parameter kimura model</strong>
+1. Uniform ancestral distribution
+2. Particular structure of the matrix. 4 parameters but an extra restriction of the sum of probabilities = 1. 
+From a mathematical point of view, the 3-parameter model is very nice to work with.</p>
+<h3 id="strand-symmetric-model-ssm">Strand symmetric model (SSM)<a class="headerlink" href="#strand-symmetric-model-ssm" title="Permanent link">¶</a></h3>
+<p>Exploits the strand symmetric model. 6 free parameters (a,b,c and d fixed py the som to 1 and so on)</p>
+<p>QUESTIONS: BUT WE ONLY LOOK INTO ONE STRAND OR NOT?</p>
+<h3 id="general-markov-model-gmm">General Markov model (GMM)<a class="headerlink" href="#general-markov-model-gmm" title="Permanent link">¶</a></h3>
+<p>No assumptions. Most general model</p>
+<h2 id="stationary-process">Stationary process<a class="headerlink" href="#stationary-process" title="Permanent link">¶</a></h2>
+<h6 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">¶</a></h6>
+<p>The nucletoid distribution as m goes to infinity goes to a stationary distribution <span class="arithmatex">\(\pi = (\pi_{A}, \pi_{C}, \pi_{G}, \pi_{T})\)</span>.</p>
+<p>In case the process is homogenous and the transition matrix M has only positive entries, because of <a href="#theorem-perron-frobenius">#Theorem Perron-Frobenius</a>, we can garantee the limit exists. And the vector is the left eigenvector of M with eigenvalue 1. </p>
+<blockquote>
+<p>This is related to dynamical systems</p>
+</blockquote>
+<h2 id="time-reversibility">Time reversibility<a class="headerlink" href="#time-reversibility" title="Permanent link">¶</a></h2>
+<p>Time reversible if
+- Stationary
+- For any pair of nucleotides we need, the probability of getting X times the probability of X changing to Y must be equal to the probability of getting Y times the probability of changing Y to X. The idea of this is
+    for <span class="arithmatex">\(S_{0}= AGCAT\)</span> and <span class="arithmatex">\(S_{1} = ATCGA\)</span>, we do not really know if <span class="arithmatex">\(S_0\)</span> changed to <span class="arithmatex">\(S_1\)</span> or the other way around. Or, in other words, we don't know if one species evolved into another one or the other way around.</p>
+<h2 id="biology-vs-maths">Biology vs Maths<a class="headerlink" href="#biology-vs-maths" title="Permanent link">¶</a></h2>
+<ol>
+<li>Time reversibility is assume in almost every paper in evolutionary.</li>
+<li>It implies "time has no direction".</li>
+<li>[[Felsenstein]] big guys in the field.</li>
+<li>It can be shown that most of the models assuming this condition, needs to be multiplicative close. That means,
+    If <span class="arithmatex">\(S_{0}\rightarrow S_{1}\)</span> is governed by <span class="arithmatex">\(M_1\)</span> and it's a JC model and then <span class="arithmatex">\(S_{1}\rightarrow S_{2}\)</span> is governed by <span class="arithmatex">\(M_2\)</span>, then <span class="arithmatex">\(S_{0}\rightarrow S_{2}\)</span> is governed by <span class="arithmatex">\(M_{1} \cdot M_2\)</span>  and should be also a JC model.  </li>
+</ol>
+<hr/>
+<p><a href="../Projects%20in%20Evolutionary%20models/">Projects</a></p>
+<hr/>
+<h1 id="recap">Recap<a class="headerlink" href="#recap" title="Permanent link">¶</a></h1>
+<p>Jesus Sánchez
+Slide 8: In GM, since the matrix is not necessarily symmetric, there's no time reversability.</p>
+<h3 id="continous-models">Continous models<a class="headerlink" href="#continous-models" title="Permanent link">¶</a></h3>
+<p>Slide 10: Instead of transition probability, we consider the matrix Q, where the entries correspond to the speed of substitutions between nucleotides. You can imagine it like 4 pools (A, C, G, T) and you can imagine the Q matrix as the quantity of water going from one pool to another (and in the diagonal is the water remaining.)</p>
+<p>This approach is much more strictive, because there's gonna be positive determinant for M and M will be non-singular (due to thefact that arises from <span class="arithmatex">\(e^{Qt}\)</span>).</p>
+<h3 id="time-reversability">Time reversability<a class="headerlink" href="#time-reversability" title="Permanent link">¶</a></h3>
+<p><span class="arithmatex">\(Q = RD(\pi)\)</span> where <span class="arithmatex">\(\pi\)</span> is the ancient distribution or the equilibrium distribution. </p>
+<h4 id="felsenstein-hierarchy">Felsenstein Hierarchy<a class="headerlink" href="#felsenstein-hierarchy" title="Permanent link">¶</a></h4>
+<p>You have an organitzation of different substitution models according to how many parameters are there.</p>
+<h3 id="mutation-rate">Mutation rate<a class="headerlink" href="#mutation-rate" title="Permanent link">¶</a></h3>
+<p>Since the "time" is difficult to estimate, it's usually measured in terms of "number of expected subtitutions per site" when comparing sequencies. Under the continous-time approach, there's the mutation rate <span class="arithmatex">\(\mu_{\pi, Q}\)</span> quantity, which is just an estimation of the number of expected substitutions per site from the rate matrix. </p>
+<p>You can normalize Q so you have one substitution per unit of time. To compare Q's is better to take the normalized versions. </p>
+<h3 id="evolutionary-distances">Evolutionary distances<a class="headerlink" href="#evolutionary-distances" title="Permanent link">¶</a></h3>
+<p>It's important that they are symmetric (as in JC or the KM - see slides). In the log-det distance we have to define if it's from <span class="arithmatex">\(S_0\)</span> to <span class="arithmatex">\(S_1\)</span>. It's not symmetric in general. You can get a very different value if you apply the formula in one direction or in the opposite one.</p>
+<p>If it's time reversible, the formula is symmetric.</p>
+<p><strong>Remark</strong>
+For continous time substitutions processes:
+<span class="arithmatex">\(<span class="arithmatex">\(-\frac{1}{4}\log{\det{M(t)}} = -tr(D(\pi)Q)t\)</span>\)</span></p>
+<h3 id="phylogenetic-trees">Phylogenetic trees<a class="headerlink" href="#phylogenetic-trees" title="Permanent link">¶</a></h3>
+<p><em>Cherry</em>: is a couple of neighbouring leaves. 
+Remember: in a phylogenetic tree you have labels in the leaves.</p>
+<p>To have the same tree, you need a graph isomorphism and you need to preserve the labeling.</p>
+<p>It's unfeasible to list all the tree topologies when you have a big number of leaves (even 20 is big enough).</p>
+<p>You can use Buneman's theory to define asymmetric difference between <strong>trees</strong>.</p>
+<h3 id="hidden-markov-models">Hidden Markov Models<a class="headerlink" href="#hidden-markov-models" title="Permanent link">¶</a></h3>
+<p>We assume certain independence (slide 30) of processes. </p>
+<p><strong>Remark</strong>: HMM and phylogenetic trees look very similar. You could try to use this idea of the forward algorithm to evaluate the probability of nucleotide pattern at the leaves: it's the <em>Felsenstein algorith</em>. So this is the same as the <em>forward algorithm</em> but applied to phylogenetic tree. And, at the same time, that was the same as the Horner's rule. </p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Mathematicals Models in Biology - An introduction" class="md-footer__link md-footer__link--prev" href="../%28book%29%20Mathematicals%20Models%20in%20Biology%20-%20An%20introduction/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Mathematicals Models in Biology - An introduction
+            </div>
+</div>
+</a>
+<a aria-label="Next: Genomics" class="md-footer__link md-footer__link--next" href="../Genomics/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Genomics
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
